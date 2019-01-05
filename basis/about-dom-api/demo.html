@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>A test of wrap.js</title>
+  <style>
+    #ad {
+      font-size: 26px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <p id="your">Here is your code...</p>
+      <p id="mine"><code>Here is my code...</code>Hallow</p>
+      <p id="her"><code>Here is her code...</code>Weeeee</p>
+    </div>
+    <div class="main">
+      <p id="msg" data-key="10">Here is the msg...</p>
+      <p id="ad" style="color: red">Here is a ad...</p>
+    </div>
+  </div>
+
+  <script src="wrap.js"></script>
+  <script>
+    var header = wrap.$('.header')
+    var your = wrap.$('#your')
+    var div = wrap.$('div')
+
+    // console.log(wrap.parentNode('.header'))
+    // console.log(wrap.parentNode('#your'))
+    // console.log(wrap.parentNode('div'))
+
+    // console.log(wrap.firstChildNode('.wrapper'))
+    // console.log(wrap.firstChildNode('#mine'))
+    // console.log(wrap.firstChildNode('div'))
+
+    // console.log(wrap.lastChildNode('.wrapper'))
+    // console.log(wrap.lastChildNode('#mine'))
+    // console.log(wrap.lastChildNode('div'))
+
+    // console.log(wrap.prevNode('.main'))
+    // console.log(wrap.prevNode('#mine'))
+
+    // console.log(wrap.nextNode('.header'))
+    // console.log(wrap.nextNode('#your'))
+
+    // console.log(wrap.siblingNodes('#your'))
+    // console.log(wrap.siblingNodes('#mine'))
+    // console.log(wrap.siblingNodes('.main'))
+
+    // console.log(wrap.childNodes('.wrapper'))
+    // console.log(wrap.childNodes('#your'))
+    // console.log(wrap.childNodes('#mine'))
+    // console.log(wrap.childNodes('div'))
+
+    // wrap.addNode('.wrapper', 'div', '<big>hello1</big>', true, true)
+    // wrap.addNode('#your', 'del')
+    // wrap.addNode('#mine', 'span', 'hello2', true)
+    // wrap.addNode('div', 'code', 'hello2')
+
+    // wrap.delNode('#mine', 'code')
+    // wrap.delNode('.header', 'p', 1)
+    // wrap.delNode('.main')
+
+    // wrap.editText('#mine', 'Here is mine new code.')
+    // wrap.editText('p', '<code>new code, new code.</code>')
+    // wrap.editText('.wrapper', 'killed by me.')
+
+    // wrap.replaceNode('code', 'del', 'Hello, i am new del')
+    // wrap.replaceNode('#ad', 'code', 'Hello, i am new code')
+
+    // wrap.cloneNodeTo('code', '#your')
+    // 奇葩，居然能克隆带 id 的标签，测测 getElementById()
+    // wrap.cloneNodeTo('p', '.main')
+    // 只能获取到第一个
+    // console.log(document.getElementById('your'))
+
+    // console.log(wrap.getAttr('meta', 'charset'))
+    // console.log(wrap.getAttr('#msg', 'data-key'))
+    // console.log(wrap.getAttr('#ad', 'color'))
+
+    // wrap.setAttr('div', {'color': 'red'})
+    // wrap.setAttr('.header', {'data-id': '10'})
+    // wrap.setAttr('#ad', {'height': '100px'})
+
+    // console.log(wrap.getStyle('.wrapper', 'width'))
+    // console.log(wrap.getStyle('.wrapper', 'height'))
+    // console.log(wrap.getStyle('#your', 'fontSize'))
+    // console.log(wrap.getStyle('#ad', 'color'))
+
+    // wrap.addClass('.wrapper', 'new-wrapper')
+    // wrap.addClass('#your', 'your')
+    // wrap.addClass('.main', 'container')
+    // wrap.removeClass('.wrapper', 'new-wrapper')
+    // wrap.removeClass('#your', 'your')
+    // wrap.removeClass('.main', 'container')
+
+    // console.log(wrap.getStyle('#ad', 'color'))
+    // console.log(wrap.getStyle('#ad', 'fontSize'))
+    wrap.setStyle('#your', {color: 'pink'})
+    wrap.setStyle('.main', {height: '100px', opacity: '0.5'})
+  </script>
+</body>
+</html>

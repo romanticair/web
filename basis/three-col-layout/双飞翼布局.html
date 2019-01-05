@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>双飞翼模型</title>
+  <style>
+  .wrapper {
+    overflow: hidden;
+  }
+
+  .wrapper > div {
+    float: left;
+    height: 300px;
+  }
+
+  .left {
+    width: 100px;
+    margin-left: -100%;
+    background: red;
+  }
+
+  .center {
+    width: 100%;
+    background: pink;
+  }
+
+  .right {
+    width: 100px;
+    margin-left: -100px;
+    background: blue;
+  }
+
+  .center .msg {
+    margin: 0 100px;
+  }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="center">
+      <div class="msg">center</div>
+    </div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+  </div>
+</body>
+</html>

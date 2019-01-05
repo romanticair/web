@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>圣杯模型</title>
+  <style>
+    .wrapper {
+      position: relative;
+      height: 300px;
+    }
+
+    .left {
+      position: absolute;
+      height: 300px;
+      width: 100px;
+      background: red;
+    }
+
+    .center {
+      /*method 1*/
+      /*
+      position: absolute;
+      left: 100px;
+      right: 100px;
+      */
+      height: 300px;
+
+      /*method 2*/
+      margin: 0 100px;
+      /*end*/
+      background: pink;
+    }
+
+    .right {
+      position: absolute;
+      right: 0;
+      /*method 2 因为没加 top 时，垂直方向是层流动性的，因此被 .center 踢下来了*/
+      top: 0;
+      /*end*/
+      width: 100px;
+      height: 300px;
+      background: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="left">left</div>
+    <div class="center">center</div>
+    <div class="right">right</div>
+  </div>
+</body>
+</html>
