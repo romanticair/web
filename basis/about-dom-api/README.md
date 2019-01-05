@@ -230,5 +230,4 @@ setStyle('.wrapper', {color: 'pink', opacity: '0.5'})
 
 End.
 
-<br/>
 若有不足，还请高人指教。
