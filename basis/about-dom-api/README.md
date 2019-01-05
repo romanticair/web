@@ -6,6 +6,7 @@
 
 [MDN Web API 参考文档](https://developer.mozilla.org/zh-CN/docs/Web/Reference/API)
 [示例源码](https://developer.mozilla.org/zh-CN/docs/Web/Reference/API)
+
 <br/>
 
 ## 关于 DOM  的几个知识点
@@ -20,6 +21,7 @@
 > 下面的示例仅包含上面所谈到的知识点。
 
 <br/>
+
 ## getElement 接口 $
 
 + 该接口便利于我们通过 **[类名|ID名|标签名]** 直接获取相匹配的节点对象
@@ -217,7 +219,9 @@ setStyle('.wrapper', {color: 'pink', opacity: '0.5'})
 <br/>
 
 以上所记录的只是浏览器提供的 API 里的冰山一角，无法在这儿一一列举，我们只需认识到她们大多都能够一针见血，有着 `WYSIWYG` 神话般的效果，待需要时，再现学现用就好啦。
+
 <br/>
 
 End.
+<br/>
 若有不足，还请高人指教。
