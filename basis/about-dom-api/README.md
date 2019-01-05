@@ -24,7 +24,7 @@
 
 ## getElement 接口 $
 
-+ 该接口便利于我们通过 **[类名|ID名|标签名]** 直接获取相匹配的节点对象
+该接口便利于我们通过 **[类名|ID名|标签名]** 直接获取相匹配的节点对象
 
 ```js
 function $(str) {
@@ -46,6 +46,7 @@ function $(str) {
   }
 }
 ```
+
 <br/>
 
 ## 关系型节点访问接口
@@ -66,6 +67,7 @@ function parentNode(str) {
 }
 ```
 对，如你所见，这里 ***封装***  的很多的接口都是类似的，只是目标不同，所以拿几个献丑就够了!
+
 <br/>
 
 ```js
@@ -79,6 +81,7 @@ function firstChildNode(str) {
 之前对浏览器提供的关系型节点访问 API 一直分不清楚，现在也记不清，所以...，发挥烂笔头的用处吧，区分开哪个 `api name` 会包含元素节点或同时文本节点。结果发现子节点 `children` 和父节点 `parentNode` 特殊点(元素节点)，含 `*Nodes` 与 `*Child` 的几乎都是包括文本节点的。而含 `*Element*` 都是元素节点，于是我将它们都改成了纯元素节点接口。
 
 ***`lastElementChild previousElementSibling nextElementSibling` 三个都是访问元素节点的，感觉还是不好记，易混淆。***
+
 <br/>
 
 ## 节点操作
@@ -117,6 +120,7 @@ function addNode(str, tagName, msg, head, tag) {
 addNode('#ad', 'h3', '<strong>买十送零活动</strong>', true)
 addNode('.box', 'div', 'add <div></div> string', false, false)
 ```
+
 <br/>
 
 此函数功能为删除给定元素下符合条件的元素节点，传一个参数则表示全删。条件可以是指定要删除的标签名和删除第几个。有几个自定义的接口，看名字就可以知道她是能干嘛的，如 `childNodes`。
@@ -161,6 +165,7 @@ function delNode(str, nodeName, nth) {
 delNode('#msg', 'div', 3)  // 将ID为msg元素下的第三个 div 删掉
 delNode('#msg', 'div')  // 将ID为msg元素下 div 全删掉
 ```
+
 <br/>
 
 ## 属性节点操作
@@ -216,6 +221,7 @@ function setStyle(str, obj) {
 
 setStyle('.wrapper', {color: 'pink', opacity: '0.5'})
 ```
+
 <br/>
 
 以上所记录的只是浏览器提供的 API 里的冰山一角，无法在这儿一一列举，我们只需认识到她们大多都能够一针见血，有着 `WYSIWYG` 神话般的效果，待需要时，再现学现用就好啦。
@@ -223,5 +229,6 @@ setStyle('.wrapper', {color: 'pink', opacity: '0.5'})
 <br/>
 
 End.
+
 <br/>
 若有不足，还请高人指教。
