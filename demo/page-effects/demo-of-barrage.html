@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<style>
+  html, body {
+    overflow: hidden;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-size: 62.5%;
+  }
+
+  .wrapper {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .container {
+    overflow: hidden;
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 50px auto;
+    border: 1px solid #666;
+  }
+
+  .emit-box {
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    bottom: 0px;
+    background: #666;
+  }
+
+  .content {
+    position: absolute;
+    width: 430px;
+    height: 40px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+  }
+
+  .title {
+    display: inline;
+    font-size: 4em;
+    vertical-align: bottom;
+    color: #fff;
+  }
+
+  .text {
+    border: none;
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 2.4em;
+  }
+
+  .btn {
+    width: 60px;
+    height: 30px;
+    border: none;
+    font-size: 2.4em;
+    background: #f90000;
+    color: #fff;
+  }
+
+  span {
+    position: absolute;
+    width: 300px;
+    height: 40px;
+    font-size: 4em;
+    line-height: 1.5em;
+    cursor: pointer;
+    white-space: nowrap;
+    color: #000;
+  }
+</style>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>demo</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container"></div>
+    <div class="emit-box">
+      <div class="content">
+        <p class="title">吐槽:</p>
+        <input type="text" class="text" />
+        <button type="button" class="btn">发射</button>
+      </div>
+    </div>
+  </div>
+
+  <!--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
+  <script src="effects.js"></script>
+  <script>
+    $(function () {
+      // barrage({button: '.btn', input: '.text'})
+      barrage({button: $('.btn'), input: '.text', container: '.container'})
+      // barrage({button: '.btn', input: '.text', container: '.container', color: ['red', 'blue', 'green']})
+    })
+  </script>
+</body>
+</body>
+</html>
