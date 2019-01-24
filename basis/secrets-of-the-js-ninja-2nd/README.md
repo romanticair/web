@@ -331,7 +331,7 @@ assert(ninjaIslandMap.size === 0)
 
 集合结构，即相同项只能有一项，不可共存，下面为建立集合容器，检测数据是否存在，移除数据，支持 `for of` 遍历，除此之外还有，还有并集、交集、差集运算。
 
-[Set 相关AP](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set)
+[Set 相关API](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set)
 
 ```js
 const ninjas = new Set(['Yoshi', 'Hattori', 'Kuma', 'Hattori'])
