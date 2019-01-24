@@ -5,7 +5,7 @@
 > 注意：操作节点时务必要降低性能开销问题。
 
 [MDN Web API 参考文档](https://developer.mozilla.org/zh-CN/docs/Web/Reference/API)
-[示例源码](https://github.com/romanticair/web/blob/master/basis/about-dom-api/wrap.js)
+[示例源码](https://developer.mozilla.org/zh-CN/docs/Web/Reference/API)
 
 <br/>
 

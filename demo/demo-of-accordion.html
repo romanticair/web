@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .box {
+      overflow: hidden;
+      width: 1200px;
+      height: 400px;
+      border: 2px solid #000;
+      margin: 100px auto;
+    }
+
+    li {
+      width: 240px;
+      height: 400px;
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+
+  <!--
+  <div class="box">
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div> -->
+  <!--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
+  <script src="effects.js"></script>
+  <script>
+    $(function () {
+      var imgArr = ['images/1.jpg', 'images/2.jpg', 'images/3.jpg', 'images/4.jpg', 'images/5.jpg']
+      var colorArr = ['red', 'blue', 'green', 'pink', 'olive']
+      // accordion('.box', 100, imgArr)
+      accordion('.box', 0, colorArr)
+      // var box = document.getElementsByClassName('box')[0]
+      // var box = document.getElementsByClassName('box')
+      // <div class="box">
+      // accordion(box, 100, colorArr)
+      // Object [ div.box ]
+      // accordion($('.box'), 100, colorArr)
+    })
+  </script>
+</body>
+</html>
