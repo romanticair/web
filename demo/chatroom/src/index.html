@@ -1,0 +1,81 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>聊天室</title>
+  <style>
+    .wrapper {
+      width: 400px;
+      margin: auto;
+      background: pink;
+    }
+    form {
+      padding: 20px;
+    }
+
+    #chat {
+      list-style: none;
+      background: #777;
+    }
+
+    #chat li {
+      border: 1px solid black;
+      background: #fff;
+    }
+
+    #chat li.mine {
+      background: green;
+    }
+    
+    li h4 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1></h1>
+    <form action="">
+      <textarea name="msg" id="msg" cols="30" rows="2"></textarea>
+      <input type="button" value="发送">
+    </form>
+
+    <ul id="chat"></ul>
+  </div>
+  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script>
+    window.onload = () => {
+      const sock = io.connect('ws://localhost:3000/')
+
+      let oText = document.getElementById('msg')
+      let submit = document.querySelector('input[type="button"]')
+      let chat = document.getElementById('chat')
+      let username = document.cookie.split('=')[1]
+      document.querySelector('.wrapper > h1').innerText = 'I am ' + username
+
+      // 主动给服务器表名身份
+      sock.emit('scan', username)
+      submit.onclick = () => {
+        sock.emit('chat', username, oText.value)
+        sock.once('chat_ret', (code, msg) => {
+          if (code) {
+            alert('发送失败，' + msg)
+          } else {
+            let oLi = document.createElement('li')
+            oLi.innerHTML = `<h4>${username}</h4><p>${oText.value}</p>`
+            oLi.className = 'mine'
+            chat.appendChild(oLi)
+            oText.value = ''
+          }
+        })
+      }
+
+      sock.on('everyone', (sender, msg) => {
+        let oLi = document.createElement('li')
+        oLi.innerHTML = `<h4>${sender}</h4><p>${msg}</p>`
+        chat.appendChild(oLi)
+      })
+    }
+  </script>
+</body>
+</html>

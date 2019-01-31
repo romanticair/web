@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>登录注册页面</title>
+  <style>
+    .wrapper {
+      margin: 100px auto;
+      width: 300px;
+      background: #777;
+    }
+    .txt1 {
+      margin: 10px;
+    }
+    .txt2 {
+      margin: 10px;
+    }
+    input[type='button'] {
+      margin-left: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="txt1">
+      <label for="username">账号</label>
+      <input id="username" type="text" placeholder="请输入账号" autocomplete="off">
+    </div>
+    <div class="txt2">
+      <label for="password">密码</label>
+      <input id="password" type="password" placeholder="请输入密码" autocomplete="off">
+    </div>
+    <input type="button" id="btn1" value="登录">
+    <input type="button" id="btn2" value="注册">
+  </div>
+
+  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script>
+    window.onload = function () {
+      const sock = io.connect('ws://localhost:3000/')
+
+      let name = document.getElementById('username')
+      let passwd = document.getElementById('password')
+      let btn1 = document.getElementById('btn1')
+      let btn2 = document.getElementById('btn2')
+
+      btn1.onclick = () => {
+        sock.emit('login', name.value, passwd.value)
+        // 注册一次即可
+        // sock.on('login_ret', (code, msg) => {
+        sock.once('login_ret', (code, msg) => {
+          if (code) {
+            console.log('登录失败 ' + msg)
+          } else {
+            alert('登录成功')
+            // 主动发请求，表示本客户是刚刚登陆跳转过来的
+            sock.emit('online', name.value, '请求上线')
+            // 页面跳转，需保存已登录的用户状态，这里用 cookie，暂时先简单处理
+            document.cookie = 'username=' + name.value
+            setTimeout(() => {
+              window.location = 'http://localhost:3000/index'
+            }, 1000)
+          }
+        })
+      }
+
+      // 注册
+      btn2.onclick = () => {
+        sock.emit('reg', name.value, passwd.value)
+        sock.once('reg_ret', (code, msg) => {
+          if (code) {
+            console.log('注册失败 ' + msg)
+          } else {
+            console.log('注册成功')
+          }
+        })
+      }
+    }
+  </script>
+</body>
+</html>

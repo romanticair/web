@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>登录注册页面</title>
+  <style>
+    .wrapper {
+      margin: 100px auto;
+      width: 300px;
+      background: #777;
+    }
+    .txt1 {
+      margin: 10px;
+    }
+    .txt2 {
+      margin: 10px;
+    }
+    input[type='button'] {
+      margin-left: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="txt1">
+      <label for="username">账号</label>
+      <input id="username" type="text" placeholder="请输入账号" autocomplete="off">
+    </div>
+    <div class="txt2">
+      <label for="password">密码</label>
+      <input id="password" type="password" placeholder="请输入密码" autocomplete="off">
+    </div>
+    <input type="button" id="btn1" value="登录">
+    <input type="button" id="btn2" value="注册">
+  </div>
+
+  <script src="/node_modules/jquery/dist/jquery.js"></script>
+  <script>
+    window.onload = function () {
+      // 登录
+     $('#btn1').click(() => {
+        $.ajax({
+          url: '/tologin',
+          data: {user: $('#username').val(), passwd: $('#password').val()},
+          dataType: 'json',
+          success(res) {
+            if (res.code) {
+              alert(`登录失败 ${res.msg}`)
+            } else {
+              // 登录成功，跳转页面
+              console.log('登录成功，服务器自动跳转页面')
+            }
+          },
+          error(err) {
+            console.log('出错了,网络不通')
+          }
+        })
+      })
+
+      // 注册
+      $('#btn2').click(() => {
+        $.ajax({
+          url: '/reg',
+          data: {user: $('#username').val(), passwd: $('#password').val()},
+          dataType: 'json',
+          success(res) {
+            if (res.code) {
+              alert(`注册失败 ${res.msg}`)
+            } else {
+              // 注册成功
+              alert(res.msg)
+              // 清空
+              $('#username').val('')
+              $('#password').val('')
+            }
+          },
+          error(err) {
+            console.log('出错了,网络不通')
+          }
+        })
+      })
+    }
+  </script>
+</body>
+</html>
