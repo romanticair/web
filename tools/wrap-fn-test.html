@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+	<style>
+		html {
+			height: 2000px;
+		}
+		.parent	{
+			position: relative;
+			width: 400px;
+			height: 400px;
+			background: pink;
+		}
+
+		#child {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background: greenyellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div id="child"></div>
+	</div>
+	<form action="">
+		<input type="text">
+		<input type="submit">
+	</form>
+	
+	<script src="wrap-compatible.js"></script>
+	<script src="wrap-web-api.js"></script>
+	<script src="wrap-common-fn.js"></script>
+	<script>
+		// test $
+		var parent = $('.parent')[0]
+		var child = $('#child')
+		var div = $('div')
+		console.log(parent, child, div)
+
+		// test trim
+		var s = trim(' hi')
+		var ss = trim(' hi ')
+		var sss = trim(' hi hi ')
+		console.log(s, ss, sss)
+
+		// test getStyle
+		var styleP = getStyle(parent, 'width')
+		var styleC = getStyle(child, 'backgroundColor')
+		console.log(styleP, styleC)
+
+		// test getClientWidth
+		var width = getClientWidth()
+		console.log(width)
+
+		// test bind and unbind
+		bind(child, 'click', bindAndUnbind)
+
+		function bindAndUnbind () {
+			console.log('bind pass test.')
+			unbind(child, 'click', bindAndUnbind)
+			console.log('unbind pass test, click will not happen.')
+		}
+
+		// test stopBubble
+		bind(child, 'mouseup', function (ev) {
+			stopBubble(ev)
+			console.log('child clicked')
+		})
+		bind(parent, 'mouseup', function () {
+			console.log('child clicked, it should deliver it to me, but not happen.')
+		})
+
+		// test default
+		var submit = document.querySelector('input[type="submit"]')
+		bind(submit, 'click', function (ev) {
+			stopDefault(ev)
+			console.log('default pass test.')
+		})
+
+		// test startMove
+		startMove(child, {
+			width: 200,
+			height: 50,
+			left: 50,
+			top: 50,
+			// opacity: 50
+			opacity: 0.5,
+		}, function () {
+			console.log('startMove pass test.')
+		})
+
+		// test mouseScroll
+		mouseScroll (document.body, function () {
+			console.log('scroll...')
+		})
+
+		// test setCookie
+		setCookie('Bay', '10001')
+		setCookie('Ray', '20002', 1)
+		setCookie('Zay', '30003', 8)
+
+		// // test getCookie
+		console.log(getCookie('Bay'))
+		console.log(getCookie('Ray'))
+		console.log(getCookie('Zay'))
+
+		// // test removeCookie
+		removeCookie('Ray')
+		removeCookie('Zay')
+		console.log(getCookie('Ray'))
+		console.log(getCookie('Zay'))
+	</script>
+</body>
+</html>
