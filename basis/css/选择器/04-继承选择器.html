@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	/*继承选择器 语法: div p span{}, span是p的后代,p是div的后代*/
+	/*选择的是后代, 满足条件则选上(嵌套内)*/
+	/*共性与个性的平衡,描述的是上下层关系*/
+	    div p span{
+	    	color: red;
+	    }
+	    .box1 p{
+	    	color: blue;
+	    }
+	    #who p{
+	    	color: purple;
+	    }
+	</style>
+</head>
+<body>
+	<div>
+		<p>
+			<span>
+				一个小范围1
+			</span>
+		</p>
+	</div>
+	<span>一个小范围2</span>
+	<div class="box1">
+		<div class="box2"><p>蓝色?</p>
+		</div>
+	</div>
+	
+	<div id="who"><p>紫色?</p></div>
+</body>
+</html>

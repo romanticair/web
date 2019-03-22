@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>排序</title>
+<style>
+	#ul {background:green;}
+</style>
+<script>
+window.onload=function () {
+	var oUl=document.getElementById('ul');
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function () {
+		var aLi=oUl.getElementsByTagName('li');
+		//aLi.sort();
+		var arr=[];
+		for(var i=0;i<aLi.length;i++) {
+			arr[i]=aLi[i];
+		}
+		
+		arr.sort(function (li1, li2){
+			var n1=parseInt(li1.innerHTML);
+			var n2=parseInt(li2.innerHTML);
+			return n1-n2;
+		});
+		
+		//alert(arr[0].innerHTML);
+		for(var i=0;i<arr.length;i++) {
+			alert('该把'+arr[i].innerHTML+'插入到后面');
+			oUl.appendChild(arr[i]);
+		}
+	};
+};
+</script>
+</head>
+<body>
+<input id="btn" type="button" value="排序" />
+<ul id="ul">
+	<li>34</li>
+	<li>25</li>
+	<li>9</li>
+	<li>88</li>
+	<li>54</li>
+</ul>
+</body>
+</html>

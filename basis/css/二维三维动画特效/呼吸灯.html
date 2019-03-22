@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS3 呼吸灯</title>
+  <style>
+    .wrap {
+      position: relative;
+      width: 400px;
+      height: 700px;
+      margin: 0 auto;
+      background: #000;
+    }
+
+    .circle,
+    .change-out,
+    .change-in,
+    .con {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200px;
+      height: 200px;
+      margin: -100px 0 0 -100px;
+      border: 2px solid #ff7d00;
+      border-radius: 50%;
+    }
+
+    .con {
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      line-height: 200px;
+      text-align: center;
+    }
+
+    .circle {
+      border-top-color: #e9c402; /*内环转圈的颜色*/
+      animation: coor-change 1s linear infinite;
+      z-index: 999;
+    }
+
+    .change-out {
+      -webkit-animation: change 2s linear infinite;
+    }
+
+    .change-in {
+      -webkit-animation: change 2s linear 1s infinite;
+    }
+    
+    @-webkit-keyframes change {
+      from {-webkit-transform: scale(1); border: 1px solid #864b12;}
+      to {-webkit-transform: scale(2); border: 1px solid #864a00;}
+    }
+
+    @-webkit-keyframes coor-change {
+      from {-webkit-transform: rotate(0deg);}
+      to {-webkit-transform: rotate(360deg);}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="con">呼吸灯特效</div>
+    <div class="circle"></div>
+    <div class="change-out"></div>
+    <div class="change-in"></div>
+  </div>
+</body>
+</html>

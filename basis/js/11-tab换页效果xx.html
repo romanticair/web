@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+		input{
+			width: 50px;
+			padding: 0;
+		}
+		#div1 .active {
+			background-color: yellow;
+		}
+		#div1 div {
+			height: 200px;
+			width: 220px;
+			border: 1px solid #999;
+			background-color: pink;
+			display: none;
+		}
+	</style>
+	<script>
+		window.onload = function() {
+			var aDiv = document.getElementById('div1');
+			var oTxt = aDiv.getElementsByTagName('input');
+			var oDiv = aDiv.getElementsByTagName('div');
+			for(var i=0; i<oTxt.length; i++) {
+				oTxt[i].index = i;
+				oTxt[i].onmouseover = function() {   //先取消所有样式
+					for(var i=0; i<oTxt.length; i++) {
+						oTxt[i].className = '';
+						oDiv[i].style.display = 'none';
+					}
+					//为当前选中的标签加上样式
+					this.className = 'active';
+					oDiv[this.index].style.display = 'block';
+				};
+			}
+		};
+	</script>
+</head>
+
+<body>
+<div id="div1">
+	<input class="active" type="text" value="第一个" />
+	<input type="text" value="第二个" />
+	<input type="text" value="第三个" />
+	<input type="text" value="第四个" />
+	<div style="display:block;">这里是文本1。</div>
+	<div>这里是文本2。</div>
+	<div>这里是文本3。</div>
+	<div>这里是文本4。</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    /*通用样式*/
+    .con {
+      margin: 0 auto;
+    }
+    .con p {
+      width: 480px;
+      height: 50px;
+      margin: 0 auto;
+      padding: 40px 0;
+      font-size: 44px;
+      font-weight: bold;
+      font-family: Britannic Bold, "Microsoft YaHei";
+      text-align: center;
+    }
+
+    /*浮雕效果 -- 上浅下深*/
+    .s1 {
+      background: #454545;
+      color: #333;
+      text-shadow: -1px -1px #ccc, 1px 1px #666;
+    }
+
+    /*外发光效果 -- 叠加效果*/
+    .s2 {
+      background: #000;
+      color: #fff;
+      text-shadow: 0 0 5px #f0f,
+                    0 0 10px rgba(255, 0, 255, 0.8),
+                    0 0 20px rgba(255, 0, 255, 0.8),
+                    0 0 35px rgba(255, 0, 255, 0.8),
+                    0 0 55px rgba(255, 0, 255, 0.8);
+    }
+
+    /*模糊效果*/
+    .s3 {
+      background: #eee;
+      color: transparent;
+      text-shadow: 0 0 8px #36f;
+    }
+
+    /*凹陷效果 -- 外深内浅*/
+    .s4 {
+      background: #d5d2c1;
+      color: #ccc;
+      text-shadow: -1px -1px #333, 1px 1px #fff;
+    }
+
+    /*火焰效果*/
+    .s5 {
+      background: #eee;
+      color: rgba(255, 0, 0, 0.8);
+      text-shadow: 0 -3px 6px rgba(255, 0, 0, 0.8),
+                    0 -6px 10px rgba(255, 64, 0, 0.8),
+                    0 -10px 16px rgba(255, 127, 0, 0.8),
+                    0 -16px 24px rgba(255, 127, 0, 0.4),
+                    0 -22px 30px rgba(255, 127, 0, 0.1)
+    }
+  </style>
+</head>
+<body>
+  <div class="con">
+    <p class="s1">布局之路</p>
+    <p class="s2">布局之路</p>
+    <p class="s3">布局之路</p>
+    <p class="s4">布局之路</p>
+    <p class="s5">布局之路</p>
+  </div>
+</body>
+</html>

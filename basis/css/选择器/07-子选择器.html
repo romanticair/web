@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	/*子选择器 语法: he>div>div{}*/
+	/*子选择器一种特殊的后代选择器, 要求'>'必须直接跟下一级*/
+	    /*div p{*/
+	    	/*color: red;*/
+	    /*}*/
+
+	    /*.he p{*/
+	    	/*color: blue;*/
+	    /*}*/
+
+	    .he>div>div>p{
+	    	color: red;
+	    }
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	/*nextstbling选择器*/
+	    h1+p+p{
+	    	color: pink;
+	    }
+	</style>
+</head>
+<body>
+	<div class="he">
+		<div>
+			<div>
+				<p>一段文字</p>
+			</div>
+		</div>
+	</div>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  -->
+    <h1>大标题</h1>
+    <p>一段文字</p>
+    <p>一段文字</p>
+    <p>一段文字</p>
+    <p>一段文字</p>
+    <h1>大标题</h1>
+    <p>一段文字</p>
+    <p>一段文字</p>
+</body>
+</html>

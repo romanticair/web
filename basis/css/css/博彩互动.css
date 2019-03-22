@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*		body{
+	font-size: 14px;
+}
+*/
+.ml12 {
+    margin-left: 12px;
+}
+
+/*最顶部*/
+.nav {
+    height: 58px;
+    background-color: #191D31;
+}
+
+.inner_center {
+    overflow: hidden;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.nav .logo {
+    float: left;
+    margin-right: 39px;
+}
+
+.nav .logo a {
+    background-image: url(../images/logo.png);
+    display: block;
+    width: 174px;
+    height: 58px;
+    text-indent: -999em;
+}
+
+.nav .locations {
+    float: left;
+}
+
+.nav .locations li {
+    float: left;
+    border-right: 1px solid #252947;
+}
+
+.nav .locations li.no1 {
+    border-left: 1px solid #252947;
+}
+
+.nav .locations li a {
+    display: block;
+    width: 100px;
+    height: 58px;
+    background-color: #191D3A;
+    line-height: 58px;
+    text-align: center;
+    color: #818496;
+}
+
+.current {
+    background-color: #252947 !important;
+}
+
+.nav .join_us {
+    float: left;
+    padding-top: 12px;
+    padding-bottom: 10px;
+    padding-left: 48px;
+    background-color: #191D3A;
+}
+
+.nav .join_us a {
+    display: block;
+    width: 100px;
+    height: 34px;
+    background-color: #38B774;
+    text-align: center;
+    line-height: 34px;
+    border: 1px solid #3ACA7A;
+    border-radius: 4px;
+    color: white;
+}
+
+/*通栏广告样式设置*/
+.banner {
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+.banner a.image {
+    display: block;
+    width: 100%;
+    height: 465px;
+    background: url(../images/banner.jpg) no-repeat center center;
+}
+
+.banner ul {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -33px;
+}
+
+.banner ul li {
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    margin-right: 12px;
+    border-radius: 8px;
+    float: left;
+}
+
+/*宣传片区域样式设置*/
+.content .product {}
+
+.content .product ul li {
+    float: left;
+    margin-right: 43px;
+}
+
+.content .product ul li .video {
+    display: block;
+    width: 218px;
+    height: 130px;
+    background-color: pink;
+}
+
+.content .product ul li .video.special {
+    width: 217px;
+}
+
+.last {
+    margin: 0 !important;
+}
+
+.content .product ul li h3 {
+    text-align: center;
+}
+
+.content .product ul li .play {
+    display: block;
+    width: 48px;
+    height: 16px;
+    margin: 0 auto;
+    color: green;
+    font-size: 12px;
+    padding-right: 12px;
+    background: url(../images/sanjiaoxing.png) no-repeat right center;
+}

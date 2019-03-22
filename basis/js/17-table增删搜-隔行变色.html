@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload=function() {
+			var oTab=document.getElementById('tab1');
+			var oldColor=null;
+			var oBtn=document.getElementById('btn1');
+			var name=document.getElementById('txt1');
+			var gender=document.getElementById('txt2');
+			var age=document.getElementById('txt3');
+			var oTxt=document.getElementById('txt4');
+			var soBtn=document.getElementById('btn2');
+
+			var id=oTab.tBodies[0].rows.length+1;
+			//关于表单颜色的函数
+			function colorFunc(){
+			  // 比下个分别单个注册好多了
+        oTab.tBodies[0].addEventListener('mouseover', function (ev) {
+          oldColor = ev.target.parentNode.style.background
+          ev.target.parentNode.style.background = 'blue'
+        }, false)
+
+        oTab.tBodies[0].addEventListener('mouseout', function (ev) {
+            ev.target.parentNode.style.background = oldColor
+          }, false)
+
+				for(var i=0; i<oTab.tBodies[0].rows.length; i++) {
+					//隔行变色
+					if(i%2){
+						oTab.tBodies[0].rows[i].style.background='pink';
+					}
+					else{
+						oTab.tBodies[0].rows[i].style.background='';
+					}
+
+					// 旧
+					//光标在区域内就变色
+					// oTab.tBodies[0].rows[i].onmouseover=function(){
+					// 	oldColor=this.style.background;
+					// 	this.style.background='blue';
+					// }
+					// //光标离开区域就还原
+					// oTab.tBodies[0].rows[i].onmouseout=function(){
+					// 	this.style.background=oldColor;
+					// }
+				}
+			};
+			//关于添加、删除表单的函数
+			function addAndDel(){
+				oBtn.onclick=function(){
+					//插到表格后面
+					var oTr=document.createElement('tr');
+					var oTd=document.createElement('td');
+					oTd.innerHTML=id++;
+					oTr.appendChild(oTd);
+
+					var oTd=document.createElement('td');
+					oTd.innerHTML=name.value;
+					oTr.appendChild(oTd);
+
+					var oTd=document.createElement('td');
+					oTd.innerHTML=gender.value;
+					oTr.appendChild(oTd);
+
+					var oTd=document.createElement('td');
+					oTd.innerHTML=age.value;
+					oTr.appendChild(oTd);
+
+					//为添加等表单给删除
+					var oTd=document.createElement('td');
+					oTd.innerHTML='<a href="javascript:;">删除</a>';
+					oTr.appendChild(oTd);
+					oTd.getElementsByTagName('a')[0].onclick=function(){
+						oTab.tBodies[0].removeChild(this.parentNode.parentNode);
+					};
+          if(id%2){
+            oTr.style.background='pink';
+          }
+					oTab.tBodies[0].appendChild(oTr);
+				};
+			};
+			//搜索
+			function searchInfo(){
+				soBtn.onclick=function(){
+				for(var i=0; i<oTab.tBodies[0].rows.length; i++){
+					var sTab=oTab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+					var sTxt=oTxt.value.toLowerCase();
+					// if(sTxt==sTab)
+					// if(sTab.search(sTxt)!=-1)
+					// {//如果相同则高亮
+					// 	oTab.tBodies[0].rows[i].style.background='blue';
+					// }
+					// else{
+					// 	oTab.tBodies[0].rows[i].style.background='';
+					// }
+					oTab.tBodies[0].rows[i].style.background='';
+					// oTab.tBodies[0].rows[i].style.display='none';
+					var arr=sTxt.split(' ');
+					for(var j=0; j<arr.length; j++) {
+						if(sTab.search(arr[j])!=-1){
+							oTab.tBodies[0].rows[i].style.background='blue';
+						// oTab.tBodies[0].rows[i].style.display='block';
+						}
+					}
+				}
+				};
+			};
+
+			// 调用函数
+			colorFunc();
+			addAndDel();
+			searchInfo();
+		};
+	</script>
+</head>
+
+<body>
+	姓名：<input type="text" id="txt1" />
+	性别：<input type="text" id="txt2" />
+	年龄：<input type="text" id="txt3" />
+	<input type="button" id="btn1" value="添加"/>
+	<table id="tab1" border="1px" width="500">
+		<thead>
+			<td>ID</td>
+			<td>姓名</td>
+			<td>性别</td>
+			<td>年龄</td>
+			<td></td>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>莉莉</td>
+				<td>女</td>
+				<td>23</td>
+				<td></td>
+
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>彭丽</td>
+				<td>女</td>
+				<td>21</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>宏力</td>
+				<td>男</td>
+				<td>20</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>Oven</td>
+				<td>男</td>
+				<td>21</td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	关键字?<input type="text" id="txt4" />
+	<input type="button" id="btn2" value="搜索"/>
+</body>
+</html>

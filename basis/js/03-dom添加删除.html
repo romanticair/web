@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload=function()
+		{
+			//删除
+			var oDiv=document.getElementById('div1');
+			var oUl=oDiv.getElementsByTagName('ul')[0];
+			var aLi=oUl.getElementsByTagName('li');
+			for(var i=0; i<aLi.length; i++){
+				// 给a标签加属性
+				aLi[i].children[0].onclick=function()
+				{
+					this.parentNode.style.display='none';
+				};
+			}
+
+			//添加
+			var oUl=oDiv.getElementsByTagName('ul')[1];
+			var aLi=oUl.getElementsByTagName('li');
+			var txt=document.getElementById('txt1');
+			for(var i=0; i<aLi.length; i++){
+				// 给a标签加属性
+				aLi[i].children[0].onclick=function()
+				{
+					var oNode=document.createElement('li');
+					oNode.innerHTML=txt.value;
+					//在底部添加
+					// this.parentNode.parentNode.appendChild(oNode);
+					//在顶部添加
+					this.parentNode.parentNode.insertBefore(oNode, aLi[0]);
+				};
+			}
+		};
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<input type="text" id="txt1" value="Hey, there." />
+		<ul>
+			<li>哈喽<a href="javascript:;">删除</a></li>
+			<li>哈鲁<a href="javascript:;">删除</a></li>
+			<li>哈克<a href="javascript:;">删除</a></li>
+		</ul>
+		<ul>
+			<li>哈喽<a href="javascript:;">添加</a></li>
+			<li>哈鲁<a href="javascript:;">添加</a></li>
+			<li>哈克<a href="javascript:;">添加</a></li>
+		</ul>
+	</div>
+</body>
+</html>

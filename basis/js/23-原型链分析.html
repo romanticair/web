@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class</title>
+</head>
+<body>
+    <script>
+    /******************
+     3. 探讨继承 
+     ******************/
+    // 所有函数 (包括function Object()) 都是以 function Function() 为构造函数
+    // 它们的 __proto__ 都指向了 Function.prototype
+    // Person 是一个函数，则其构造函数就是 function Function()
+    // 而 Function 的 prototype 指向了 Function.prototype 对象
+    // 那么 Person 的 __proto__ 也是指向了 Function.prototype (该对象定义了所有函数共有的方法)
+    // 比如 apply call 等
+
+    // Function.prototype 也是个对象，其构造函数是 function Object()
+    // 而 function Object() 的 prototype 指向 Object.prototype
+    // 因此 Function.prototype.__proto__ 就指向了 Object.prototype (该对象定义了所有对象共有的属性)
+    // 如 hasOwnProperty, toString 等
+
+    // 结果：Person.prototype 和其它自定义的对象的 __proto__ 都是指向 Object.prototype 对象(原型链终点)
+    // 所有，自定义对象，实例化后，访问属性时将从 本身 -> * -> Function -> Object ? 访问
+
+    // 每个对象都有 hasOwnProperty() 方法，用来检查对象本身是否拥有某属性(原型链上的不算?)
+    function Person(name) {
+      this.name = name
+    }
+
+    Person.prototype.say = function () {
+      console.log('Hello.')
+    }
+
+    var lily = new Person('Lily')
+    var bily = new Person('Bily')
+
+    function Manager(name, money) {
+        Person.call(this, name)
+        this.money = money
+    }
+
+    Manager.prototype = Person.prototype
+    Person.prototype.who = function () {
+      console.log(this.name)
+    }
+    Manager.prototype.getMoney = function () {
+        console.log(this.money)
+    }
+
+    var lucy = new Manager('Lucy', 2300)
+    console.log(Manager, Person)
+    console.log(lucy.say())
+    console.log(lucy.who())
+    console.log(lucy.getMoney())
+    </script>
+</body>
+</html>

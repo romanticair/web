@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="600"></canvas>
+</body>
+<script>
+    var canvas = document.querySelector('canvas');
+    var ctx = canvas.getContext('2d');
+    var data = [6, 30, 10, 8];
+//    将数据转换成弧度
+    var angleList = [];
+    var total = 0;
+    data.forEach(function (item, i) {
+        total += item;
+    });
+    data.forEach(function(item, i){
+        var angle = (item/total) * 2 * Math.PI;
+        angleList.push(angle);
+    });
+    var canvasWidth = ctx.canvas.width;
+    var canvasHeight = ctx.canvas.height;
+    var x0 = canvasWidth / 2;
+    var y0 = canvasWidth / 2;
+
+//    随机颜色函数
+    var getRandomColor = function(){
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        return 'rgb(' + r + ',' + g + ',' + b + ')';
+    }
+
+    var startAngle = 0;
+    var radius = 150;
+    for(var i=0; i<data.length; i++){
+        var endAngle = startAngle + angleList[i];
+        ctx.beginPath();
+        ctx.fillStyle = getRandomColor();
+        ctx.moveTo(x0, y0);
+        ctx.arc(x0, y0, radius, startAngle, endAngle);
+        ctx.fill();
+        startAngle = endAngle;
+    }
+</script>
+</html>

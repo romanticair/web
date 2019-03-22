@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{
+			display: none;
+			font-size: 20px;
+			color: red;
+		}
+	</style>
+
+	<script>
+		function setText(){
+			var oTxt = document.getElementById('txt1');
+			oTxt.value = "有什么变化吗?";
+		}
+	</script>
+
+</head>
+<body>
+<!-- 可能不兼容 -->
+<!-- 	<input type="checkbox" onmouseover="div1.style.display='block';" onmouseout="div1.style.display='none'"/> -->
+	<input type="checkbox" onmouseover="document.getElementById('div1').style.display='block';" onmouseout="document.getElementById('div1').style.display='none';"/>
+	<div id="div1">
+		第一次玩js
+	</div>
+	<input type="button" value="按钮" onclick="alert('哈哈哈');" />
+	<input id="txt1" type="text" />
+	<input type="button" value="改文字" onclick="setText()" />
+</body>
+</html>

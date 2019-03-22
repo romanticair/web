@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS3 3D 立方体</title>
+  <style>
+    body {
+      -webkit-perspective: 1500px;
+    }
+
+    .main {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 100px auto;
+      cursor: pointer;
+      -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      -ms-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      -webkit-transition: -webkit-transform 2s ease 0s;
+      -moz-transition: -webkit-transform 2s ease 0s;
+      -ms-transition: -webkit-transform 2s ease 0s;
+      -o-transition: -webkit-transform 2s ease 0s;
+      transition: -webkit-transform 2s ease 0s;
+    }
+
+    .main p {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      text-align: center;
+      line-height: 200px;
+      font-size: 26px;
+      opacity: 0.5;
+    }
+
+    /*垂直屏幕-z 左右-y 上下-x*/
+    .main p:nth-of-type(1) {
+      background: red;
+      -webkit-transform: translateZ(100px);
+    }
+    .main p:nth-of-type(2) {
+      background: orange;
+      -webkit-transform: rotateX(90deg) translateZ(100px);
+    }
+    .main p:nth-of-type(3) {
+      background: yellow;
+      -webkit-transform: rotateX(-90deg) translateZ(100px);
+    }
+    .main p:nth-of-type(4) {
+      background: green;
+      -webkit-transform: rotateY(90deg) translateZ(100px);
+    }
+    .main p:nth-of-type(5) {
+      background: skyblue;
+      -webkit-transform: rotateY(-90deg) translateZ(100px);
+    }
+    .main p:nth-of-type(6) {
+      background: blue;
+      -webkit-transform: rotateY(180deg) translateZ(100px);
+    }
+
+    .main:hover {
+      -webkit-transform: rotateX(45deg) rotateY(45deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <p>香蕉</p>
+    <p>柠檬</p>
+    <p>胡萝卜</p>
+    <p>青苹果</p>
+    <p>大西瓜</p>
+    <p>虞美人</p>
+  </div>
+</body>
+</html>

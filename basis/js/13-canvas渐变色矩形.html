@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+		canvas{
+			border: 1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600px" height="300px"></canvas>
+	<canvas id="canvas2" width="600px" height="400px"></canvas>
+</body>
+<script>
+	var canvas = document.querySelector('canvas');
+	var ctx = canvas.getContext('2d');
+	// fillStyle 'pink' '#000' 'rgb()' 'rgba()'
+	// 起始x0y0, 结束x1y1 确定长度和方向
+	var linearGrandient = ctx.createLinearGradient(100, 100, 500, 400);
+	linearGrandient.addColorStop(0, 'pink');
+	linearGrandient.addColorStop(0.4, '#eee');
+	linearGrandient.addColorStop(1, 'blue');
+	ctx.fillStyle = linearGrandient;
+	ctx.fillRect(100, 100, 400, 100);
+
+	var ctx2 = document.getElementById('canvas2').getContext('2d');
+	for(var i=0; 255 > i; i++){
+		ctx2.fillStyle = 'rgb(' + i + ',' + i + ',' + i + ')';
+		ctx2.beginPath();
+		ctx2.rect(i, 100, i+1, 200);
+		ctx2.stroke();
+		ctx2.fill();
+	}
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+<!-- 类选择器(很重要), 语法 .special:{} -->
+	<style>
+	    .special{
+	    	color: red;
+	    }
+	    .p_class2{
+	    	font-size: 40px;
+		}
+		.span_class{
+			font-size: 200px;
+			font-weight: bold;
+			color: purple;
+		}
+		.big{
+			font-size: 200px; 
+		}
+		.bold{
+			font-weight: 900;
+		}
+		.c_purple{
+			color: purple;
+		}
+	</style>
+</head>
+<!-- 范围比id大, 因为类名可重复 -->
+<!-- 任何标签都可以携带class属性 -->
+<!-- 一个标签可以有多个类(用空格隔开) -->
+<!-- 设置标签的个性时，使用类选择器，除非特殊情况特殊，才使用id选择器 -->
+<!-- id选择器一般是给js使用的 -->
+<body>
+	<p class="special">一段文字</p>
+	<h1 class="special p_class2">大标题</h1>
+	<span class="span_class">小范围</span>
+	<span class="big bold c_purple">小范围</span> <!--写得好,可重复利用class!-->
+</body>
+</html>

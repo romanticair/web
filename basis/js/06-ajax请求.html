@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload=function()
+		{
+			var oBtn=document.getElementById('btn1');
+			oBtn.onclick=function()
+			{	
+				// 1.创建Ajax对象
+				//只能IE用
+				// var oAjax=new ActiveXObject('Microsoft.XMLHTTP');
+				//大部分都能用
+				var oAjax=new XMLHttpRequest();
+				// alert(oAjax);
+
+				// 2.连接服务器
+				// open(方法,文件名,异步传输)
+				oAjax.open('GET', 'test.txt', true);
+				
+				// 3.发送请求
+				oAjax.send();
+
+				// 4.接受返回
+				oAjax.onreadystatechange=function() //有通信时发生
+				{
+					// 浏览器和服务器,进行到哪一步?
+					// 4表示读取完成
+					if(oAjax.readyState==4)   //读取完成?
+					{
+						if(oAjax.status==200) //成功?
+						{
+							alert('成功: '+oAjax.responseText);
+						}
+						else
+						{
+							alert('失败: '+oAjax.status);
+						}
+					}
+				};
+			};
+		};
+	</script>
+</head>
+<body>
+	<input type="button" value="获取" id="btn1" />
+</body>
+</html>

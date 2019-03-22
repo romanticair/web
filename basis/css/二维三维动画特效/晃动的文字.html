@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .box {
+      width: 450px;
+      height: 450px;
+      margin: 0 auto;
+      padding: 20px 0 0;
+    }
+
+    .wrap {
+      position: relative;
+      width: 450px;
+      height: 100px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      background: #fff;
+      cursor: pointer;
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+      transition: all 0.5s ease;
+    }
+
+    .wrap span {
+      position: absolute;
+      top: 0;
+      left: -5px;
+      width: 10px;
+      height: 100px;
+      background: #ccf;
+      transition: all .5s ease;
+    }
+
+    .wrap img {
+      float: left;
+      margin: 10px 15px;
+      width: 78px;
+      height: 78px;
+      border: 1px solid #000;
+      border-radius: 3px;
+      transform: scale(0.7);
+      transition: all .5s ease;
+    }
+
+    .wrap h2 {
+      margin-top: 16px;
+      font-size: 24px;
+      transition: all .5s ease;
+    }
+
+    .wrap p {
+      font-size: 12px;
+      margin-top: 4px;
+      transition: all .5s ease;
+    }
+
+    .wrap:hover {
+      background: rgba(0, 0, 255, 0.2);
+    }
+
+    .wrap:hover span {
+      left: 445px;
+      background: rgba(0, 0, 255, 0.6);
+    }
+
+    .wrap:hover h2 {
+      font-size: 20px;
+      font-weight: bold;
+      color: #fff;
+      animation: shake .5s .2s ease;
+    }
+
+    .wrap:hover p {
+      font-size: 14px;
+      color: #fff;
+      animation: shake .5s .2s ease;
+    }
+
+    .wrap:hover img {
+      border: 1px solid #00f;
+      transform: scale(1);
+    }
+
+    @-webkit-keyframes shake {
+      0%, 100% {-webkit-transform: translateX(0);}
+      20%, 60% {-webkit-transform: translateX(-10px);}
+      40%, 80% {-webkit-transform: translateX(10px);}
+    }
+  </style>
+</head>
+<body>
+    <div class="box">
+      <div class="wrap">
+        <span></span>
+        <img src="../images/zczp.png" alt=""/>
+        <h2>HTMl5</h2>
+        <p>在2018年桂林一高校腾空而出，一道刺光闪过，撒下一大堆水果。</p>
+      </div>
+    </div>
+</body>
+</html>

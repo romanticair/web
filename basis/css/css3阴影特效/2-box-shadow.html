@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .con {
+      margin: 0 auto;
+    }
+    .con p {
+      width: 480px;
+      height: 50px;
+      margin: 0 auto;
+      padding: 40px 0;
+      font-size: 44px;
+      font-weight: bold;
+      font-family: Britannic Bold, "Microsoft YaHei";
+      text-align: center;
+    }
+
+    /*前面的属性不会被后面的覆盖*/
+    p {
+      /*水平偏移量，垂直偏移量，模糊值，延伸值，颜色, 位置*/
+      box-shadow: 0 0 0 2px rgb(255, 0, 0),
+                  0 0 0 4px rgb(255, 127, 0),
+                  0 0 0 6px rgb(255, 255, 0),
+                  0 0 0 8px rgb(0, 255, 0),
+                  0 0 0 10px rgb(0, 255, 255),
+                  0 0 0 12px rgb(0, 0, 255),
+                  0 0 0 14px rgb(255, 0, 255)
+    }
+  </style>
+</head>
+<body>
+<div class="con">
+  <p>布局之路</p>
+</div>
+</body>
+</html>

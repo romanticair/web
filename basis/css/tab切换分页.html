@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+		.cl{
+			clear: both;
+		}
+		ul li{
+			list-style: none;
+			float: left;
+		}
+		.father{
+			overflow: hidden;
+			width: 200px;
+			height: 200px;
+			border: 1px solid gray;
+		}
+		#div1{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+		}
+		#div2{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}
+		#div3{
+			width: 200px;
+			height: 200px;
+			background-color: yellow;
+		}
+
+		.box1{
+			overflow: hidden;
+		}
+		p{
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<p>一段文字</p>
+	</div>
+	<!-- 用html和css  制作tab切换效果 -->
+	<ul>
+		<li><a href="#div1">div1</a></li>
+		<li><a href="#div2">div2</a></li>
+		<li><a href="#div3">div3</a></li>
+	</ul>
+	<div class="cl"></div>
+	<div class="father">
+		<div id="div1">div1</div>
+		<div id="div2">div2</div>
+		<div id="div3">div3</div>
+	</div>
+</body>
+</html>

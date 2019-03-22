@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>标签伪类</title>
+	<style type="text/css">
+		div{
+			color: red;
+		}
+		a:link{
+			color: black;
+		}
+		a:visited{
+			color: pink;
+		}
+		a:hover{
+			color: green;
+		}
+		a:active{
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+<!-- 
+	1.平常状态              a: link
+	2.点击过的状态          a: visited
+	3.鼠标放a标签上的状态   a: hover
+	4.点击下还没松手的状态  a: active  -->
+	<div>
+		<p>这是段文字</p>
+		<a href="#">百度</a>
+	</div>
+</body>
+</html>

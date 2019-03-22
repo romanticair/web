@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+</head>
+<body>
+  <script>
+    /******************
+     1. 见证一切皆像对象(对象可改动，而不是固定值或规定值)
+     *******************/
+    console.log(typeof null)             // object
+    console.log(typeof undefined)        // undefined
+    console.log(typeof 2)                // number
+    console.log(typeof 'a')              // string
+    console.log(typeof [1,2,3])          // object
+    console.log(typeof {a:3})            // object
+    console.log(typeof function a(){})   // function
+    console.log(null in window)          // false
+    console.log(undefined in window)     // true -- 全局变量
+
+    // instanceof 是用来判断引用类型的，而 null 是五种基本类型中的一种，用 instanceof 判断基本类型都是 false
+    console.log(null instanceof Object)      // false
+    console.log(undefined instanceof Object) // false
+
+    // function 是 Function 的一个实例
+    // 所以函数内置属性来源于 Function，如 apply call 等
+    function test() {}
+    console.log(test.__proto__)                        // function
+    console.log(test.__proto__.__proto__)              // Object
+    console.log(test.__proto__.__proto__.__proto__)    // null
+    console.log(test.prototype)                        // Object
+    console.log(test.prototype.__proto__)              // Object
+    console.log(test.prototype.__proto__.__proto__)    // null
+
+    // Function 内置属性(__proto__)和其原型(prototype)是同一对象!
+    console.log(Function.prototype)                                  // function
+    console.log(Function.__proto__)                                  // function
+    console.log(Function.prototype.__proto__)                        // Object
+    console.log(Function.__proto__.__proto__)                        // Object
+    console.log(Function.__proto__ === Function.prototype)           // true
+    console.log(Function.__proto__.__proto__ === Function.prototype) // false
+    console.log(test.__proto__ === Function.prototype)               // true
+    console.log(Object.__proto__ === Function.prototype)             // true
+
+    var o = {}
+    console.log(o.__proto__ === Function.prototype)    // false
+    console.log(o.__proto__ === Object.prototype)      // true
+    console.log(Function.__proto__ instanceof Function)// false
+    console.log(Function.__proto__ instanceof Function)// false
+
+
+    /******************
+     2. 理解原型链
+     ******************/
+    // 所有函数都有 prototype 指针(构造函数的一个指针属性)，指向原型对象
+    // 构造函数的 prototype 所指向的原型对象都有个 constructor 指针，指回构造函数
+    // Person.prototype (这里是Object) 的 constructor 指向 Person (利于找出对象的构造函数)
+    function Person(name) {
+      this.name = name
+    }
+
+    // 以属性形式 (js就是这样) 挂载 say 函数到 Person 的原型 (这里是Object) 上
+    Person.prototype.say = function () {
+      console.log('Hello.')
+    }
+
+    // 对象都有 __proto__ (构成原型链) [隐藏的 __proto__ 属性]
+    // 这个属性指向Object.prototype这个内存空间。
+    // 实例化对象时，(将?)它的 __proto__ 指向构造函数的 prototype 指向的对象(原型对象)
+    // 即实例化对象 lily、bily 的 __proto__ 都指向了 Person.prototype (这里是Object)
+    // 注：一个对象的 __proto__ 指向了另一个对象，那么前者就继承了后者的所有属性(继承缘由)
+    var lily = new Person('Lily')
+    var bily = new Person('Bily')
+
+    // 调用 say() 时，实例本身无该属性，所以通过 __proto__ "链" 跑去实例原型找(__proto__指向的对象)
+    // 即在 Object 对象这找到了我们挂载的 say 属性。
+    console.log(lily.say())
+    console.log(bily.say())
+    console.log(Person)             // function Person()
+    console.log(Person.prototype)   // Object { say: say(), … }
+    console.log(Person.__proto__)   // function ()
+    console.log(lily)               // Object { name: "Lily" }
+    console.log(lily.prototype)     // undefined
+    console.log(lily.__proto__)     // Object { say: say(), … }
+
+    console.log(lily.__proto__ === Person.prototype)  // true
+    // new Person('Lily') 时相当于以下三句:
+    var lucy = new Object()
+    lucy.__proto__ = Person.prototype
+    Person.call(lucy, 'Lucy')
+    // or Person.apply(lucy, ['Lucy'])
+    console.log(lucy.__proto__ === Person.prototype)  // true
+
+    // Person 实例对象共有的属性
+    console.log(Object.getPrototypeOf(lucy).say === Person.prototype.say)  // true
+
+    // 结果发现起链接作用的是 __proto__，而 prototype 只是构造函数的一个指针属性而已
+    // 这就区别开了 prototype 和 __proto__ 的关系
+  </script>
+</body>
+</html>
