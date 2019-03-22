@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+  <style>
+    canvas {
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+    <canvas width="600px" height="500px"></canvas>
+</body>
+<script src="barchart.js"></script>
+<script>
+  var data = [
+    {
+      title: '15-20岁',
+      num: 6
+    },
+    {
+      title: '20-25岁',
+      num: 25
+    },
+    {
+      title: '25-30岁',
+      num: 22
+    },
+    {
+      title: '30-40岁',
+      num: 8
+    },
+    {
+      title: '40以上',
+      num: 2
+    }]
+  var ctx = document.querySelector('canvas').getContext('2d')
+  var barChart = new BarChart(ctx)
+  barChart.init(data)
+</script>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<style>
+		html, body {
+			height: 100%;
+			overflow: hidden;
+		}
+		ul {
+			list-style: none;
+			margin: 0;
+			padding-left: 0;
+		}
+
+		.wrapper {
+			position: relative;
+			width: 80%;
+			height: 100%;
+			margin: 0 auto;
+		}
+
+		.scroller-box {
+			position: absolute;
+			overflow: hidden;
+			height: 400px;
+			width: 50%;
+			top: 50px;
+			left: 50%;
+			margin-left: -25%;
+			border: 1px solid #7e7e7e;
+		}
+		
+		ul {
+			position: absolute;
+			width: 100%;
+			top: 0;
+			left: 0;
+		}
+		li {
+			height: 40px;
+			box-sizing: border-box;
+			width: 100%;
+			padding-left: 20px;
+			border-bottom: 1px solid #abc;
+			line-height: 40px;
+			background-color: pink;
+		}
+
+		li.active {
+			background-color: rgba(25, 25, 25, 0.7)
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="scroller-box">
+			<ul id="scroller">
+				<li class="active">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>10</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>10</li>
+			</ul>
+		</div>
+	</div>
+
+	<script src="scroller.js"></script>
+	<script>
+		var box = document.querySelector('.scroller-box')
+		var scroller = new Scroller(box, {
+			// direction: 'y'
+			direction: 'x',
+			speed: 0.5,
+			callback: function () {
+				console.log('do what I do.')
+		}
+	})
+	</script>
+</body>
+</html>

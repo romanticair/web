@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    canvas{
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+    <canvas width="600px" height="400px"></canvas>
+</body>
+
+<script src="person.js"></script>
+<script>
+  var ctx = document.querySelector('canvas').getContext('2d')
+  var imageUrl = 'images/01.png'
+  var person = new Person(ctx)
+  person.init(imageUrl)
+</script>
+</html>

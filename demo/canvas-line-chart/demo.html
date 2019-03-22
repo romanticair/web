@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    canvas {
+      border: 1px solid #ccc;
+      margin: 100px 0 0 200px;
+    }
+  </style>
+</head>
+<body>
+	<canvas width="600px" height="400px"></canvas>
+</body>
+
+<script src="linechart.js"></script>
+<script>
+	var data = [
+  	{
+  		x: 100,
+  		y: 120},
+  	{
+      x: 200,
+      y: 160},
+    {
+      x: 300,
+      y: 240},
+    {
+      x: 400,
+      y: 120},
+    {
+      x: 500,
+      y: 80
+    }]
+	var ctx = document.querySelector('canvas').getContext('2d')
+	var lineChart = new LineChart(ctx)
+	lineChart.init(data)
+</script>
+</html>

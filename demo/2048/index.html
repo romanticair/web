@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ch-zn">
+<head>
+  <meta charset="UTF-8">
+  <title>2048 Game</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="heading">
+      <h1 class="title">2048</h1>
+      <div class="scores-container">
+        <div class="score-box">0</div>
+        <div class="best-box">2048</div>
+      </div>
+    </div>
+
+    <div class="game-intro">
+      <button class="restart-btn">New Game</button>
+      <h2 class="sub-title">
+        Play 2048 Game Online
+      </h2>
+      <div class="about-game">
+        Join the numbers and get to the
+        <strong> 2048 tile!</strong>
+      </div>
+    </div>
+
+    <div class="game-container">
+      <div class="grid-container">
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+      </div>
+      <div class="num-container"></div>
+    </div>
+
+    <div class="desc">
+      <p>
+        <strong>How to play:</strong> Use your 
+        <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>
+      </p>
+    </div>
+  </div>
+
+  <script src="lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
