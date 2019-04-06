@@ -1,0 +1,67 @@
+*,
+*::before,
+*::after{
+  /*所有的标签和伪元素都选中*/
+  margin: 0;
+  padding: 0;
+  /*移动端常用布局是非固定像素的*/
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /*点击高亮效果的清除*/
+  tag-hightlight-color: transparent;
+  -webkit-tag-hightlight-color: transparent;
+}
+body{
+  font-size: 14px;
+  font-family: "Microsoft YaHei", sans-serif;
+  color: #333;
+  background: #f5f5f5;
+}
+ul,ol{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: #333;
+}
+input,textarea{
+  border: none;
+  outline: none;
+  resize: none;
+  -webkit-appearance: none;
+}
+
+/*===========common css=============*/
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.clearfix::before,
+.clearfix::after{
+  /*不占用任何位置且不显示并清除浮动*/
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}
+.ml10{
+  margin-left: 10px;
+}
+.mr10{
+  margin-right: 10px;
+}
+.mt10{
+  margin-top: 10px;
+}
+.mb10{
+  margin-bottom: 10px;
+}
+
+/*使用精灵图的公用样式*/
+[class^="icon-"], [class*=" icon-"] {
+  background: url("../img/sprites.png") no-repeat;
+  background-size: 200px 200px;
+}

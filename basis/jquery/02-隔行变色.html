@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>隔行变色</title>
+	<script src="../common/jquery/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			// var lis = $("li");
+			// jquery对象转Dom对象操作
+			// for(var i=0; i< lis.length; i++){
+			// 	if (i%2 == 0) {
+					// $是一个函数
+					// lis[i]:DOM对象, lis:jquery对象
+			// 		lis[i].style.backgroundColor = "pink";
+			// 	}
+			// 	else{
+			// 		lis[i].style.backgroundColor = "blue";
+			// 	}
+			// }
+			
+			$('li:even').css("backgroundColor", "pink");
+			$('li:odd').css("backgroundColor", "blue");
+		});
+	</script>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,22 @@
+fs模块全称File System
+1.touch            -- 创建一个空文件
+例:
+var fs=require('fs');
+var path='test.txt';
+fs.touch(path);            //create an empty file.
+
+2.exists           -- 判断文件是否存在
+例:
+var path='/Full/path/test.txt';
+if(fs.exists(path))
+{
+	console.log('"'+path+'" existis.');
+}
+
+3.read             -- 读文件
+例:
+var content=fs.read('output.txt');
+
+4.write            -- 写文件
+var content='Hello!';
+fs.write(path, content, 'w');

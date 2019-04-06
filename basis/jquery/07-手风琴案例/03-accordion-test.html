@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		#box{
+			width: 1000px;
+			height: 300px;
+			border: 2px solid #000;
+			margin: 100px auto 0;
+			overflow: hidden;
+		}
+		ul{
+			width: 1100px;
+		}
+		li{
+			width: 100px;
+			height: 300px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<script src="../../common/jquery/jquery-3.3.1.js"></script>
+	<script src="jquery.accordion.js"></script>
+	<script>
+		$(function () {
+  			var colors = ["red","yellow","green", "cyan", "pink","hotpink", "blue", "yellowgreen","greenyellow", "skyblue"];
+  			$('#box').accordion(colors, 20);
+		});
+	</script>
+</body>
+</html>

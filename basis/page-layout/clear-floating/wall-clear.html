@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    ul li {
+      float: left;
+      margin-right: 10px;
+      list-style: none;
+    }
+    .first{
+      /*overflow: hidden;*/
+    }
+    .qiang{
+      clear: both; /*left 也可以，意味着清除前面浮动元素产生的影响*/
+    }
+  </style>
+</head>
+<body>
+<ul class="first">
+  <li>西瓜</li>
+  <li>苹果</li>
+  <li>葡萄</li>
+  <!-- <div class="qiang"></div> -->
+</ul>
+<!-- 外墙法, 墙是写外面的(有一个空标签) -->
+<!-- 和伪元素::after,::before类似都是空标签 -->
+<!-- <div class="qiang"></div> -->
+<ul class="second">
+  <li>篮球</li>
+  <li>足球</li>
+  <li>乒乓球</li>
+</ul>
+</body>
+</html>

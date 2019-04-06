@@ -1,0 +1,23 @@
+<!-- 引用模板 -->
+{{extend './layout.html'}}
+
+<!-- 往坑里填内容 -->
+{{ block 'head' }}
+<style>
+	body {
+		background-color: skyblue;
+	}
+</style>
+{{ /block}}
+
+{{ block 'content' }}
+<div>
+	<h1>index 页面填坑的内容</h1>
+</div>
+{{ /block }}
+
+{{ block 'script' }}
+<script>
+	console.log('填坑的 js 脚本')
+</script>
+{{ /block }}

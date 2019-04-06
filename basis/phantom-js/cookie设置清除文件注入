@@ -1,0 +1,14 @@
+1.addCookie(object)        -- 添加一个Cookie到CookieJar中
+例:
+phantom.addCookie({
+	'name': 'Added-Cookie-Name',
+	'value': 'Added-Cookie-value',
+	...
+});
+
+2.clearCookie()            -- 删除Cookiejar中所有Cookie
+3.deleteCookie(cookieName) -- 删除指定名称的Cookie信息
+4.exit()
+5.injectJs(filename)       -- 注入外部js文件
+例:
+var wasSuccessfule=phantom.injectJs('lib/utils.js');

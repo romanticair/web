@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>响应式布局</title>
+  <style>
+    body {
+      padding: 5px;
+    }
+
+    .main div {
+      float: left;
+      height: 200px;
+      margin-bottom: 5px;
+      background: #ccc;
+    }
+
+    .sidebar {
+      padding: 0 0.5%;
+    }
+
+    .sidebar li {
+      height: 40px;
+      margin-bottom: 5px;
+      text-align: center;
+      line-height: 40px;
+      background: #f0f0f0;
+    }
+
+    @media screen and (max-width: 480px) {
+      .main div {
+        width: 49%;
+        margin-left: 0.5%;
+        margin-right: 0.5%;
+      }
+    }
+
+    @media screen and (min-width: 481px) {
+      .sidebar {
+        float: left;
+        width: 23.5%;
+      }
+
+      .main {
+        float: right;
+        width: 74.5%;
+      }
+
+      .main div {
+        width: 49.5%;
+        margin-left: 0.5%;
+      }
+    }
+
+    @media screen and (min-width: 961px) {
+      .main div {
+        width: 33%;
+        margin-left: 0.33%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="sidebar">
+      <ul>
+        <li>列表内容 tips1</li>
+        <li>列表内容 tips2</li>
+        <li>列表内容 tips3</li>
+        <li>列表内容 tips4</li>
+      </ul>
+    </div>
+    <div class="main">
+      <div>内容块 tips1</div>
+      <div>内容块 tips2</div>
+      <div>内容块 tips3</div>
+      <div>内容块 tips4</div>
+      <div>内容块 tips5</div>
+      <div>内容块 tips6</div>
+    </div>
+  </div>
+</body>
+</html>

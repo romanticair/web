@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .parent {
+      width: 400px;
+      height: 400px;
+      background: pink;
+      /*method 1 and 2*/
+      /*position: relative;*/
+
+      /*3.flex*/
+      /*display: flex;*/
+      /*justify-content: center;*/
+      /*align-items: center;*/
+
+      /*4.table-cell*/
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .child {
+      width: 100px;
+      height: 200px;
+      background: blue;
+      /*
+      1.position + margin
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -50px;
+      margin-top: -100px;
+      */
+
+      /*2.position + transform
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      */
+
+      /*method 4*/
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<div class="parent">
+  <div class="child"></div>
+</div>
+<body>
+</body>
+</html>

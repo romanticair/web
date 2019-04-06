@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="./lib/vue-2.4.0.js"></script>
+</head>
+<body>
+  <div id="app">
+    <input type="button" value="获取元素" @click="getElement" rel="mybtn"/>
+    <h3 rel="myh3">哈哈哈，今天天气太好了！！！</h3>
+    <hr/>
+    <login ref="mylogin">aaa</login>
+  </div>
+  <script>
+    var login = {
+      template: '<h1>登录组件</h1>',
+      data() {
+        return {
+          msg: 'child msg'
+        }
+      },
+      methods: {
+        show() {
+          console.log('调用了子组件的方法')
+        }
+      }
+    }
+
+    var vm = new Vue({
+      el: '#app',
+      data: {},
+      methods: {
+        getElement() {
+        // console.log(document.getElementById('myh3').innerText)
+        // ref 是英文单词【reference】值类型和引用类型 referenceError
+        // console.log(this.$refs.myh3.innerText) 无该方法
+         console.log(this.$refs.mylogin.msg) // 调用其数据和方法
+         this.$refs.mylogin.show()
+        }
+      },
+      components: {login}
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>div: 使用频率极高</p>  <!-- division-分割 对网页布局进行分割-->
+	<p>span: 使用频率极高</p> <!-- span-范围 对网页划定范围-->
+	<div>分割1</div>        <!-- 分割一整行,其它被往下挤-->
+	<div>分割2</div>        <!-- div标签语义, 就是一块区域 -->
+	<span>范围1</span>      <!-- 划分一小部分区域,文本有多大就分多大-->
+	<span>范围2</span>
+	<p>一段文字</p>         <!-- p是以段文字, 不会和div矛盾 -->
+	<p>一段文字</p>
+	<a href="">百度</a>
+	<a href="">百度</a>
+	<div>                   <!-- 验证div和p不会矛盾(一块区域有多段文字)-->
+		<p>文字测试01</p>   <!-- 可行, 我们称div为盒子-->
+		<p>文字测试02</p>
+	</div>
+	<p>                     <!-- 验证p和span不会矛盾(一段文字分多个范围)-->
+		<span>文字测试01</span>
+		<span>文字测试02</span>
+	</p>
+	<h3>div实际作用: </h3>
+	<p>div标签嵌套本身已经独占了一行的标签外面，是不会起任何显示的作用</p>
+	<h3>span实际作用</h3>
+	<p>span标签嵌套本身不独占一行的标签外面，是不会起任何显示的作用</p>
+	<!-- 不建议在span中房子h1这种会独占一行的，如要放则放到div中 -->
+	<h3>综上所述: div和span的区别</h3>
+	<p>1.嵌套在换行还是不换行的标签外面的区别</p>
+	<p>2.大盒子和小范围的区别，二维和一维的区别</p>
+	<p>div+css是目前做网页布局的最大主流</p>
+</body>
+</html>

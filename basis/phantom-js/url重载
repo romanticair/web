@@ -1,0 +1,15 @@
+includeJs(url, callback){void}
+
+// 四种重载方法
+open(url, callback){void}
+open(url, method, callback){void}
+open(url, method, data, callback){void}
+open(url, settings, callback){void}
+
+ps:
+args -method        GET/POST
+args -settings      请求头的和内容的设置
+
+
+onInitialized      回调方法-webpage对象创建后,url加载前被调用
+onLoadFinished     回调方法-url加载后被调用,Status一参数

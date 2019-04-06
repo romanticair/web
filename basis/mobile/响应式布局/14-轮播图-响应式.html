@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <title>title</title>
+    <link href="../../common/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet">
+    <style>
+        .pc_imgBox{
+            display: block;
+            height: 400px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .m_imgBox{
+            display: block;
+            width: 100%;
+        }
+        .m_imgBox img{
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<!-- carousel 轮播图的模块  slide是否加上滑动效果 -->
+<!-- data-ride="carousel" 初始化轮播图属性-->
+
+<!--
+需求：宽度自适应，高度自动变化
+-->
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- 点盒子 -->
+    <ol class="carousel-indicators">
+        <!--
+            data-target="#carousel-example-generic" 控制目标轮播图
+            data-slide-to="0" 控制的是轮播图当中的第几张 （索引）
+            class="active" 当前选中的点
+        -->
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+    </ol>
+    <!-- 图片盒子 -->
+    <!-- role="listbox" 提供给屏幕阅读器使用 -->
+    <div class="carousel-inner">
+        <!--需要轮播的容器-->
+        <div class="item active">
+            <a href="#" class="pc_imgBox hidden-xs" style="background-image: url(../images/demo1.jpg)"></a>
+            <a href="#" class="m_imgBox hidden-lg hidden-md hidden-sm"><img src="../images/demo1.jpg" alt=""></a>
+        </div>
+        <div class="item">
+            <a href="#" class="pc_imgBox hidden-xs" style="background-image: url(../images/demo2.jpg)"></a>
+            <a href="#" class="m_imgBox hidden-lg hidden-md hidden-sm"><img src="../images/demo2.jpg" alt=""></a>
+        </div>
+        <div class="item">
+            <a href="#" class="pc_imgBox hidden-xs" style="background-image: url(../images/demo3.jpg)"></a>
+            <a href="#" class="m_imgBox hidden-lg hidden-md hidden-sm"><img src="../images/demo3.jpg" alt=""></a>
+        </div>
+        <div class="item">
+            <a href="#" class="pc_imgBox hidden-xs" style="background-image: url(../images/demo4.jpg)"></a>
+            <a href="#" class="m_imgBox hidden-lg hidden-md hidden-sm"><img src="../images/demo4.jpg" alt=""></a>
+        </div>
+    </div>
+    
+    <!--
+     上一张下一张按钮
+     data-slide="prev"
+     data-slide="next"
+     href="#carousel-example-generic"   控制目标轮播图
+    -->
+    <a class="left carousel-control" href="#carousel-example-generic"  data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
+<script src="../../common/jquery/jquery-3.3.1.js"></script>
+<script src="../../common/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <title>title</title>
+    <link href="../../common/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style>
+        .pc_imgBox{
+            display: block;
+            height: 400px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+<!--
+需求：高度固定，图片居中，容器铺满
+怎么设置不同图片：使用css选择器来设置不太好（html内容动态改变不利于维护）
+-->
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <a href="#" class="pc_imgBox" style="background-image: url(../weijinsuoM/images/slide_01_2000x410.jpg)"></a>
+        </div>
+        <div class="item">
+            <a href="#" class="pc_imgBox" style="background-image: url(../weijinsuoM/images/slide_02_2000x410.jpg)"></a>
+        </div>
+        <div class="item">
+            <a href="#" class="pc_imgBox" style="background-image: url(../weijinsuoM/images/slide_03_2000x410.jpg)"></a>
+        </div>
+        <div class="item">
+            <a href="#" class="pc_imgBox" style="background-image: url(../weijinsuoM/images/slide_04_2000x410.jpg)"></a>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#carousel-example-generic"  data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
+<script src="../../common/jquery/jquery.min.js"></script>
+<script src="../../common/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

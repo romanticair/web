@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    div {
+      width: 400px;
+      height: 400px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    /*清除下间隙的三种方式*/
+    div {
+      /*1.设置父对象的文字大小为0px*/
+      /*font-size: 0;*/
+    }
+    img{
+      /*2.将其转为 block*/
+      /*display: block;*/
+      /*3.为其垂直对齐方式设属性值,只要不是 baseline 的值如 top，text-top，bottom，text-bottom 都可以*/
+      vertical-align: middle;
+      /*4.都浮动*/
+      /*float: left;*/
+    }
+  </style>
+  <meta charset="UTF-8">
+  <title>行内元素的原因(以父级的基线去对齐,撑开高度)</title>
+</head>
+<body>
+  <div>
+    <img src="./demo.png" alt=""/>
+    <img src="./demo.png" alt=""/>
+  </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+system模块, 只有属性
+
+1.args          -- 从命令行中输入的参数是一个字符串列表
+例:
+var system = require('system');
+var args=system.args;
+if(args.length > 1)
+{
+	args.forEach(function(arg, i)
+	{
+	console.log(i + ': ' + arg);
+	});
+}
+
+2.evn           -- 系统变量，是一个键值对列表
+例:
+var env=system.env;
+Object.keys(env).forEach(function(key)
+{
+	console.log(key + '=' + env[key]);
+});
+
+3.os            -- 操作系统的信息
+例:
+var os=system.os;
+console.log(os.architecture);       //32bit
+console.log(os.name);               //windows
+console.log(os.version);            //10
+
+4.pid           -- 当前执行PhantomJS的进程号
+例:
+var pid=system.pid;
+console.log(pid);
+
+5.platform      -- 平台名称, 总是PhantomJS
+例:
+console.log(system.platform);

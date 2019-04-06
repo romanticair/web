@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script src="../common/jquery/jquery-3.3.1.js"></script>
+	<script>
+		// js入口函数等待页面和照片加载完才执行
+		// jq入口函数会等待页面加载完成，但不等待照片加载完才执行
+		$(document).ready(function(){
+			console.log("这是写入口函数的第一种写法");
+			$("#btn1").click(function(){
+				$("div").show(1000);
+			});
+
+			$("#btn2").click(function(){
+				$("div").text("content show!");
+			});
+		});
+
+		// $(function(){
+			// console.log("这是写入口函数的第二种写法");
+		// });
+
+		// 什么是DOM对象，用js方法获取到的对象
+		// 什么是jquery对象，用jq方法获取到的对象
+	</script>
+	<style>
+		div{
+			background-color: gray;
+			height: 100px;
+			margin-bottom: 20px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">show</button>
+	<button id="btn2">content</button>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

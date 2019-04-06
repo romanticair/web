@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>两盒子夹一带脱标元素的盒子</title>
+  <style>
+    /*浮动的元素脱标(默认方向是向上的)*/
+    /*即去除标准文档流的限制：比如*/
+    /*1.浮动的元素可并存一行*/
+    /*2.并且可以设置宽和高*/
+    /*浮动脱标之后，就不占有标准文档流的空间(浮到上一层画布)*/
+    .header {
+      height: 100px;
+      background-color: pink;
+    }
+
+    .parent {
+      width: 100%;
+      background: red;
+      /*height: 200px;*/
+      /*overflow: hidden;*/
+    }
+
+    [class^="child"] {
+      float: left;
+      width: 200px;
+      height: 200px;
+    }
+
+    .child-one {
+      background: green;
+    }
+
+    .child-two {
+      background: blue;
+    }
+
+    .footer {
+      height: 100px;
+      background-color: deeppink;
+    }
+
+    /*推荐*/
+    .clearfix::after{ /*伪元素相当于空标签*/
+      content: "";
+      width: 0;       /*设置宽高，安全*/
+      height: 0;
+      display: table; /*block, flex也可以*/
+      visibility:hidden;
+      clear: both;    /*left 也可以*/
+      /**zoom: 1;       IE6 7需要*/
+    }
+
+    /*直接写在父盒子上也是可以的*/
+    .parent:after {/*Just like above.*/}
+
+    /*双伪元素法*/
+    /*.clearfix:before, .clearfix:after {*/
+      /*content: "";*/
+      /*display: table;    !*触发bfc 防止外边距合并*!*/
+    /*}*/
+    /*.clearfix:after {*/
+      /*clear: both;*/
+    /*}*/
+  </style>
+</head>
+<body>
+  <div class="header"></div>
+   <!--<div class="parent clearfix">-->
+  <div class="parent">
+    <div class="child-one"></div>
+    <div class="child-two"></div>
+  </div>
+  <div class="footer"></div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <link rel="stylesheet" href="../../common/bootstrap-3.3.7/css/bootstrap.css"/>
+    <title>标签页</title>
+</head>
+<body>
+<div>
+    <!--页签 Nav tabls-->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+    </ul>
+    <!--内容-->
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane active" id="home">1</div>
+        <div role="tabpanel" class="tab-pane" id="profile">2</div>
+        <div role="tabpanel" class="tab-pane" id="messages">3</div>
+        <div role="tabpanel" class="tab-pane" id="settings">4</div>
+    </div>
+</div>
+<script src="../../common/jquery/jquery-3.3.1.js"></script>
+<script src="../../common/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

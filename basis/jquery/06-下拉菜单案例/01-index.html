@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script src="../../common/jquery/jquery-3.3.1.js"></script>
+	<script>
+		$(function () {
+			var $li=$(".wrap>ul>li");
+			$li.mouseover(function (){
+				$(this).children("ul").show();
+			});
+
+			$li.mouseout(function(){
+				$(this).children("ul").hide();
+			});
+		});
+	</script>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		.wrap{
+			width: 330px;
+			height: 30px;
+			margin: 100px auto 0;
+			padding-left: 10px;
+			background-color: pink;
+		}
+		.wrap li{
+			background-color: red;
+		}
+		.wrap>ul>li{
+			float: left;
+			margin-right: 10px;
+			position: relative;
+		}
+		.wrap a{
+			display: block;
+			height: 30px;
+			width: 100px;
+			color: #000;
+			line-height: 30px;
+			text-align: center;
+		}
+		.wrap li ul{
+			position: absolute;
+			top: 30px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul>
+			<li>
+				<a href="javascript:;">no.1</a>
+				<ul class="ul">
+					<li><a href="#">aa</a></li>
+					<li><a href="#">bb</a></li>
+					<li><a href="#">cc</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="javascript:;">no.3</a>
+				<ul>
+					<li><a href="#">dd</a></li>
+					<li><a href="#">cc</a></li>
+					<li><a href="#">aa</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="javascript:;">no.3</a>
+				<ul>
+					<li><a href="#">kk</a></li>
+					<li><a href="#">ll</a></li>
+					<li><a href="#">jj</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

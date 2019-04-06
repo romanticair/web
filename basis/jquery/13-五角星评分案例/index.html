@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>stars</title>
+	<style>
+		ul{
+			width: 160px;
+			list-style: none;
+			margin: 50px auto 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		li{
+			float: left;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			font-weight: bold;
+			text-align: center;
+			font-size: 30px;
+			color: pink;
+		}
+	</style>
+</head>
+<body>
+	<ul class="common">
+		<li>☆</li>
+		<li>☆</li>
+		<li>☆</li>
+		<li>☆</li>
+		<li>☆</li>
+	</ul>
+	<script src="../../common/jquery/jquery-3.3.1.js"></script>
+	<script>
+		$(function () {
+			var emptyStar='☆';
+			var solidStar='★';
+			// on是delagate和bind的结合,推荐使用on方法
+			// end是选择之前选择到的对象,这样就能够用链式了
+			$('.common>li').on('mouseenter', function(){
+				$(this).text(solidStar).prevAll().text(solidStar).end().nextAll().text(emptyStar);
+			});
+
+			// $(".common>li").mouseenter(function () {
+			// 	$(this).text(solidStar).prevAll().text(solidStar);
+			// 	$(this).nextAll().text(emptyStar);
+			// });
+
+			$(".common").mouseleave(function () {
+				$(this).children().text(emptyStar);
+				$(".common>.selected").text(solidStar).prevAll().text(solidStar);
+			});
+
+			$(".common>li").click(function(){
+				$(this).addClass('selected').siblings().removeClass('selected');
+			});
+		});
+	</script>
+</body>
+</html>

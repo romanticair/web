@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .course {
+      margin: 20px auto;
+      border: 1px solid black;
+    }
+
+    .course caption {
+      height: 28px;
+      border: 1px solid black;
+      line-height: 28px;
+      text-align: center;
+      background: #cfc;
+    }
+
+    .course tr {
+      height: 24px;
+    }
+
+    .course th,
+    .course td {
+      border: 1px solid black;
+      text-align: center;
+    }
+
+    .course-list {
+      width: 50px;
+      background: pink;
+    }
+    .course-con {
+      width: 80px;
+      background: deeppink;
+    }
+  </style>
+</head>
+<body>
+<table class="course">
+  <caption>XXX专业课程表</caption>
+  <colgroup>
+    <col class="course-list" span="2">
+    <col class="course-con" span="5">
+  </colgroup>
+  <thead>
+    <tr>
+      <th colspan="2">节次与星期</th>
+      <th>星期一</th>
+      <th>星期二</th>
+      <th>星期三</th>
+      <th>星期四</th>
+      <th>星期五</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="4">上午</td>
+      <td>1</td>
+      <td rowspan="2">高等数学</td>
+      <td></td>
+      <td rowspan="3">摄影摄像</td>
+      <td rowspan="2">大学英语</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td rowspan="2">大学体育</td>
+      <td rowspan="2">大学英语</td>
+      <td></td>
+      <td rowspan="2">高等数学</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="7">午休</td>
+    </tr>
+    <tr>
+      <td rowspan="4">下午</td>
+      <td>5</td>
+      <td rowspan="2">数字电路</td>
+      <td></td>
+      <td rowspan="2">大学英语</td>
+      <td rowspan="3">C语言</td>
+      <td rowspan="2">艺术基础</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td></td>
+      <td rowspan="2">大学语文</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

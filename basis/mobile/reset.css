@@ -1,0 +1,27 @@
+html {
+	color: #303030;
+	background: #fff;
+	font-family: "Microsoft YaHei",sans-serif,Arial;
+}
+a {
+	text-decoration: none;
+	color: #666;
+	/*去除外侧高亮线*/
+	outline: none;
+	/*去除触摸高亮*/
+	-webkit-tap-highlight-color: rgba(255,0,0,0);
+}
+input:focus {
+	/*去除文本框默认高亮样式*/
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-user-modify: read-write-plaintext-only;
+}
+input[type="button"], input[type="submit"], input[type="reset"] {
+	/*去除iPhone、iPad按钮默认样式*/
+	-webkit-appearance: none;
+}
+input::-ms-clear {
+	/*去除IE10+文本框叉号*/
+	display: none;
+}
+/*在 reset.html 头部去除设备自动识别电话、邮箱功能*/

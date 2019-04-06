@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>                 <!-- 表单标签 -->
+<body>                  <!-- 所有表单元素必须写在form标签对中 -->
+	<form action="" method="">
+		文本框:<input type="text" name="" id="" value="默认账号" />
+		<br />
+		密码框:<input type="password" name="" id="" value="默认密码" />
+		提交按钮:<input type="submit" value="登录" />
+		普通按钮:<input type="button" value="普通按钮" />
+		重置按钮:<input type="reset" />
+		<br />
+		单选框:         <!-- 相同的name属性能够成为一个组-->
+		请选择性别      <!-- 否则单选按钮毫无关联-->
+		<input type="radio" name="sex" id="" value="Male" />
+		<input type="radio" name="sex" id="" value="Female" />
+		复选框:         <!-- 务必写上name(语义需要),让她们成为一组 -->
+		<input type="checkbox" name="hobby" />打篮球
+		<input type="checkbox" name="hobby" />打代码
+		<input type="checkbox" name="hobby" />健身
+		<input type="checkbox" name="hobby" />游泳
+	</form>
+	<p>checkbox 功能增强(点到文字就能选上)</p>            
+	<form>              <!-- 加上label标签, 选上的范围包括文字 -->
+		<input type="checkbox" name="hobby" id="b" />
+		<label for="b">打篮球</label>
+		<input type="checkbox" name="hobby" id="code" />
+		<label for="code">打代码</label>
+		<input type="checkbox" name="hobby" id="pe" />
+		<label for="pe">健身</label>
+		<input type="checkbox" name="hobby" id="swi" />
+		<label for="swi">游泳</label>
+	</form>
+	<form action="">  <!-- option 下拉列表-->
+		<select name="" id="">
+			<option value="">北京</option>
+			<option value="">上海</option>
+			<option value="">广州</option>
+			<option value="">四川</option>
+			<option value="">杭州</option>
+		</select>     <!-- textarea 文本域-->
+		<textarea cols="20" rows="10">rows限制宽, cols限制列(默认值)</textarea>
+	</form>
+</body>
+</html>

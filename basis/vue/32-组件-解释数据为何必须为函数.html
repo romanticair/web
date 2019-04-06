@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="./lib/vue-2.4.0.js"></script>
+</head>
+<body>
+  <div id="app">
+    <counter></counter>
+    <hr>
+    <counter></counter>
+    <hr>
+    <counter></counter>
+  </div>
+
+  <template id="tpl">
+    <div>
+      <input type="button" value="puls one" @click="increment"/>
+      <h3>{{ count }}</h3>
+    </div>
+  </template>
+<script>
+//  var dataObj = {count: 0}
+
+  // 这是一个计数器的组件, 身上有个按钮,每当点击按钮,让 data 中的 count 值 +1
+//  直接对象则为引用，函数则各有各的空间，不受影响
+  Vue.component('counter', {
+    template: '#tpl',
+    data: () => {
+//      return dataObj
+      return { count: 0 }
+    },
+    methods: {
+      increment() {
+        this.count++
+      }
+    }
+  })
+
+  var vm = new Vue({
+    el: '#app'
+  })
+</script>
+</body>
+</html>

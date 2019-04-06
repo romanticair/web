@@ -1,0 +1,442 @@
+.wrapper {
+  width: 100%;
+  min-width: 320px;
+  max-width: 640px;
+  padding: 0 5px;
+  margin: 0 auto;
+}
+
+/*头部区域*/
+.header {
+  position: fixed;
+  width: 100%;
+  height: 40px;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+/*搜索区域*/
+.header .container {
+  position: relative;
+  max-width: 640px;
+  height: 40px;
+  margin: 0 auto;
+  background: rgba(201, 21, 35, 0);
+}
+
+.header .icon-logo {
+  position: absolute;
+  width: 60px;
+  height: 36px;
+  top: 4px;
+  left: 10px;
+  background-position: 0 -103px;
+}
+
+.header .jd-search {
+  position: relative;
+  width: 100%;
+  padding-left: 70px;
+  padding-right: 50px;
+}
+
+.header .jd-search input {
+  width: 100%;
+  height: 30px;
+  margin-top: 5px;
+  padding-left: 40px;
+  border-radius: 15px;
+  background: #fff;
+  color: #838383;
+}
+
+.header .jd-search .icon-search {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 80px;
+  top: 10px;
+  background-position: -60px -109px;
+}
+
+.header .jd-login {
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  top: 0;
+  right: 0;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+}
+
+/*广告宣传轮播图*/
+.jd-ad {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.jd-ad ul:first-child {
+  float: left;
+  width: 1000%;
+  transform: translateX(-10%);
+  transition: all 1s ease;
+}
+
+.jd-ad ul:first-child li {
+  float: left;
+  width: 10%;
+}
+
+.jd-ad ul:first-child li a {
+  display: block;
+  width: 100%;
+}
+
+.jd-ad ul:first-child li img {
+  display: block;
+  width: 100%;
+}
+
+.jd-ad ul:last-child {
+  position: absolute;
+  bottom: 8px;
+  width: 120px;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.jd-ad ul:last-child li {
+  float: left;
+  width: 6px;
+  height: 6px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+}
+
+.jd-ad ul:last-child li + li {
+  margin-left: 10px;
+}
+
+.jd-ad ul:last-child li.active {
+  /*border-width: 3px;*/
+  background: #fff;
+}
+
+/*菜单分类区域*/
+.jd-cate {
+  width: 100%;
+  max-height: 152px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.jd-cate ul {
+  padding: 10px 0;
+}
+
+.jd-cate ul li {
+  float: left;
+  width: 25%;
+}
+
+.jd-cate li a {
+  display: block;
+  width: 100%;
+}
+
+.jd-cate li img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+}
+
+.jd-cate li p {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  padding: 5px 0;
+}
+
+/*秒杀活动区域*/
+.jd-activity {
+  position: relative;
+  width: 100%;
+  margin-top: 9px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.jd-activity > p {
+  padding-top: 10px;
+  padding-bottom: 18px;
+  padding-left: 36px;
+  font-size: 18px;
+  color: #d8505c;
+}
+
+.jd-activity span.seckill-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 36px;
+  height: 44px;
+  background: url(../img/seckill-icon.png) no-repeat center center;
+  background-size: 50% 50%;
+}
+
+.jd-activity > p span:nth-of-type(2) {
+  margin-left: 13px;
+}
+
+.jd-activity > p span + span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 3px;
+  line-height: 16px;
+  text-align: center;
+  font-size: 16px;
+  background: #000;
+  color: #d9d9d9;
+}
+
+.jd-activity > p span + span:nth-of-type(3n+1) {
+  width: 9px;
+  margin-left: -3px;
+  margin-right: 0;
+  color: #5c5c5c;
+  background: white;
+}
+
+.jd-activity > p .seckill-more {
+  position: absolute;
+  display: block;
+  right: 12px;
+  top: 12px;
+  font-size: 14px;
+}
+
+.jd-activity ul {
+  width: 100%;
+}
+
+.jd-activity ul li {
+  float: left;
+  width: 33.3333%;
+  text-align: center;
+  padding-bottom: 11px;
+}
+
+.jd-activity ul li a {
+  display: block;
+  width: 100%;
+}
+
+.jd-activity ul li:nth-of-type(2) a {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.jd-activity ul li a img {
+  display: block;
+  width: 64%;
+  margin: 0 auto;
+}
+
+.jd-activity ul li p {
+  font-size: 12px;
+}
+
+.jd-activity ul li p:first-of-type {
+  height: 26px;
+  line-height: 26px;
+  color: #d8505c;
+}
+
+.jd-activity ul li p:last-of-type {
+  color: #666;
+  text-decoration: line-through;
+}
+
+/*京东业务服务*/
+.jd-server {
+  width: 100%;
+}
+
+/*京东超市区域*/
+.jd-server .jd-shop {
+  width: 100%;
+  margin-top: 10px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+}
+
+.jd-shop .title {
+  position: relative;
+  height: 33px;
+  padding-left: 22px;
+  border-bottom: 1px solid #ccc;
+  font-size: 18px;
+  line-height: 33px;
+  font-weight: normal;
+}
+
+.jd-shop .title:before {
+  position: absolute;
+  content: '\200B';
+  left: 11px;
+  top: 11px;
+  width: 3px;
+  height: 12px;
+  background: red;
+}
+
+.jd-shop .left,
+.jd-shop .right {
+  width: 50%;
+}
+
+.jd-shop .right {
+  border-left: 1px solid #ccc;
+}
+
+.jd-shop .right .top,
+.jd-shop .right .bottom {
+  height: 50%;
+}
+
+.jd-shop .right .bottom {
+  border-top: 1px solid #ccc;
+}
+
+.jd-shop .left a,
+.jd-shop .rigth a {
+  display: block;
+}
+
+.jd-shop .left img,
+.jd-shop .right img {
+  display: block;
+  width: 100%;
+}
+
+/*京东自营区域*/
+.jd-server .jd-selfsupport {
+  width: 100%;
+  margin-top: 10px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+}
+
+.jd-selfsupport .title {
+  position: relative;
+  height: 33px;
+  border-bottom: 1px solid #ccc;
+  padding-left: 22px;
+  font-size: 18px;
+  line-height: 33px;
+  font-weight: normal;
+}
+
+.jd-selfsupport .title:before {
+  position: absolute;
+  content: '\200B';
+  left: 11px;
+  top: 11px;
+  width: 3px;
+  height: 12px;
+  background: red;
+}
+
+.jd-selfsupport .left,
+.jd-selfsupport .right {
+  width: 50%;
+}
+
+.jd-selfsupport .right {
+  border-left: 1px solid #ccc;
+}
+
+.jd-selfsupport .right .top,
+.jd-selfsupport .right .bottom {
+  height: 50%;
+}
+
+.jd-selfsupport .left .bottom {
+  border-top: 1px solid #ccc;
+}
+
+.jd-selfsupport .left a,
+.jd-selfsupport .rigth a {
+  display: block;
+}
+
+.jd-selfsupport .left img,
+.jd-selfsupport .right img {
+  display: block;
+  width: 100%;
+}
+
+/*京东热门区域*/
+.jd-server .jd-hot {
+  width: 100%;
+  margin-top: 10px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+}
+
+.jd-hot .title {
+  position: relative;
+  height: 33px;
+  padding-left: 22px;
+  border-bottom: 1px solid #ccc;
+  font-size: 18px;
+  line-height: 33px;
+  font-weight: normal;
+}
+
+.jd-hot .title:before {
+  position: absolute;
+  content: '\200B';
+  left: 11px;
+  top: 11px;
+  width: 3px;
+  height: 12px;
+  background: red;
+}
+
+.jd-hot .left,
+.jd-hot .right {
+  width: 50%;
+}
+
+.jd-hot .right {
+  border-left: 1px solid #ccc;
+}
+
+.jd-hot .right .top,
+.jd-hot .right .bottom {
+  height: 50%;
+}
+
+.jd-hot .right .bottom {
+  border-top: 1px solid #ccc;
+}
+
+.jd-hot .left a,
+.jd-hot .rigth a {
+  display: block;
+}
+
+.jd-hot .left img,
+.jd-hot .right img {
+  display: block;
+  width: 100%;
+}

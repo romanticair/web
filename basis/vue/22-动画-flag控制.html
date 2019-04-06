@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<div id="app">
+  <input type="button" value="toggle" @click="flag=!flag"/>
+  <h3 v-if="flag">看不见我</h3>
+</div>
+<script src="./lib/vue-2.4.0.js"></script>
+<script>
+  // 创建 Vue 实例，得到 ViewModel
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      flag: false
+    },
+    methods: {}
+  })
+</script>
+</body>
+</html>

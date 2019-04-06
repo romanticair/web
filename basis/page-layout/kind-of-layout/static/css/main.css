@@ -1,0 +1,257 @@
+*{padding:0;margin:0;}
+a{text-decoration: none;}
+ul{list-style: none;}
+
+/*topbar 区域*/
+.topbar {
+  height: 58px;
+  background: #191d3a;
+}
+
+.topbar > .container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.topbar .logo {
+  float: left;
+  width: 174px;
+  height: 58px;
+  padding-left: 12px;
+  margin-right: 39px;
+}
+
+.topbar .logo > a {
+  display: block;
+  width: 100%;
+  height: 58px;
+  background: url(../img/logo.png) no-repeat;
+}
+
+.topbar .nav {
+  float: left;
+  width: 607px;
+}
+
+.topbar .nav ul li {
+  float: left;
+  height: 58px;
+  width: 100px;
+  border-left: 1px solid #252947;
+}
+
+.topbar .nav ul li:last-child {
+  border-right: 1px solid #252947;
+}
+
+.topbar .nav ul li a {
+  display: block;
+  height: 58px;
+  width: 100px;
+  line-height: 58px;
+  text-align: center;
+  font-size: 14px;
+  /*color: #678496; 识色器不对,修正*/
+  color: #818496;
+}
+
+.topbar .nav ul li a:hover {
+  color: #e2e4ed;
+  background: #252947;
+}
+
+.topbar .nav ul li:first-child a {
+  color: #e2e4ed;
+}
+
+.topbar .join-us {
+  float: left;
+  padding-left: 46px;
+  padding-top: 12px;
+}
+
+.topbar .join-us a {
+  display: block;
+  width: 100px;
+  height: 32px;
+  border: 1px solid #3aca7a;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 32px;
+  text-align: center;
+  color: #fff;
+  background: #38b774;
+}
+
+.topbar .join-us a:hover {
+  background-color: #48c784;
+}
+
+/*banner 区域*/
+.banner {
+  height: 465px;
+}
+
+.banner > .container {
+  height: 100%;
+  background: url("../img/banner.jpg") no-repeat center center;
+}
+
+/*产品宣传片区域*/
+.content {
+  height: 414px;
+}
+.content > .container {
+  width: 1000px;
+  margin: 50px auto 0;
+}
+
+.content .product {
+  height: 229px;
+  border-bottom: 1px solid #dbe1e7;
+}
+
+.content .product dl {
+  float: left;
+  width: 218px;
+}
+
+.content .product dl:last-of-type {
+  width: 217px;
+}
+
+.content .product dl + dl {
+  margin-left: 43px;
+}
+
+.content .product dl dt img {
+  width: 218px;
+  height: 130px;
+}
+
+.content .product dl dd {
+  height: 53px;
+  text-align: center;
+}
+
+.content .product dl dd > h3 {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 2em;
+}
+
+.content .product dl dd > a {
+  font-size: 12px;
+  color: #38b774;
+  padding-right: 10px;
+  background: url("../img/sanjiaoxing.png") right center no-repeat;
+}
+
+/*左侧新闻*/
+.content .main {
+  height: 317px;
+  padding: 53px 0 44px;
+}
+
+.content .main .news {
+  float: left;
+  width: 500px;
+  height: 317px;
+}
+
+.content .main .news h3 {
+  position: relative;
+  height: 120px;
+  background: url("../img/bynewsbg.jpg") no-repeat;
+}
+
+.content .main .news h3 a {
+  position: absolute;
+  width: 64px;
+  height: 26px;
+  top: 41px;
+  left: 219px;
+}
+
+.content .main .news ul {
+  width: 460px;
+  padding: 0 20px;
+}
+
+.content .main .news ul li {
+  height: 50px;
+  border-bottom: 1px solid #afbecf;
+}
+
+.content .main .news ul li:first-child {
+  height: 42px;
+}
+
+.content .main .news ul li a {
+  line-height: 50px;
+  color: #444866;
+  font-size: 14px;
+}
+
+.content .main .news ul li span {
+  margin-right: 22px;
+  font-size: 12px;
+  color: #afbecf;
+}
+
+/*右侧招聘信息*/
+.content .main .recruit {
+  float: left;
+  width: 500px;
+  height: 317px;
+  padding: 44px 175px 26px 20px;
+  box-sizing: border-box;
+  background: url("../img/byhrbg3.jpg");
+}
+
+.content .main .recruit div:first-child {
+  position: relative;
+  width: 112px;
+  height: 74px;
+}
+
+.content .main .recruit div:first-child h1 {
+  position: absolute;
+  width: 112px;
+  height: 49px;
+  left: 62px;
+  top: 0;
+  text-indent: -100em;
+  background: url("../img/zczp.png");
+}
+
+.content .main .recruit div:first-child a {
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 26px;
+  top: -2px;
+  left: 139px;
+}
+
+.content .main .recruit div:last-child h3 {
+  height: 16px;
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.content .main .recruit div:last-child ul li {
+  height: 38px;
+  line-height: 38px;
+  border-bottom: 1px solid #6fdea3;
+}
+
+.content .main .recruit div:last-child ul li a {
+  font-size: 14px;
+  color: #fff;
+}
+
+.content .main .recruit div:last-child ul li a:hover {
+  background: orange;
+}

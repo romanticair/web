@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0
+    }
+    img {
+        vertical-align: top;
+    }
+    .main {
+        margin: 10px auto 0;
+        width: 1000px;
+    }
+    .fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    </style>
+</head>
+<body>
+<div class="top" id="topPart">
+    <img src="images/top.png" alt=""/>
+</div>
+<div class="nav" id="navBar">
+	<img src="images/nav.png" alt=""/>
+</div>
+<div class="main" id="mainPart">
+	<img src="images/main.png" alt=""/>
+</div>
+</body>
+<script src="../../common/jquery/jquery-3.3.1.js"></script>
+<script>
+	$(function () {
+		// 判断已滚动的高度超过topPart高度
+		// 让navBar有固定定位,让mainPart有一个marginTop
+		$(window).scroll(function(){
+			if($(window).scrollTop() >= $('#topPart').height()){
+				$('#navBar').addClass('fixed');
+				// fixed之后，就空了，补高
+				$('#mainPart').css('marginTop', $('.nav').height() + 10);
+			}else{
+				$('#navBar').removeClass('fixed');
+				$('#mainPart').css('marginTop', 10);
+			}
+		});
+	});
+</script>
+</html>
