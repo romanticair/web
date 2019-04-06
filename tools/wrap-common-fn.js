@@ -22,7 +22,6 @@ function trim (str) {
 	return str.replace(/(^\s*)/g, '').replace(/(\s*$)/g, '').replace(/(\s+)/g, ' ')
 }
 
-
 /**
  * 仿 Jquery $() 获取元素
  *
@@ -43,7 +42,6 @@ function $(str) {
 	}
 }
 
-
 /**
  * 随机 rgb 颜色
  *
@@ -55,7 +53,6 @@ function getRandomColor () {
 	var b = Math.floor(Math.random() * 256)
 	return 'rgb(' + r + ',' + g + ',' + b + ')'
 }
-
 
 /**
  * 数字补零
@@ -69,7 +66,6 @@ function zeroize (num) {
 	}
 		return '' + num
 }
-
 
 /**
  * DOM 对象 CSS 属性缓冲变化
@@ -117,7 +113,6 @@ function startMove(obj, json, cb) {
 		}
 	}, 30)
 }
-
 
 /**
  * 图片资源预加载

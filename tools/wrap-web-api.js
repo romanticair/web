@@ -30,7 +30,6 @@ function setCookie (key, val, expiresDay) {
 	}
 }
 
-
 /**
  * 根据键值索引获取对应 Cookie 缓存
  *
@@ -49,7 +48,6 @@ function getCookie (key) {
 	return false
 }
 
-
 /**
  * 根据键值索引删除对应 Cookie 缓存
  *
@@ -59,7 +57,6 @@ function removeCookie (key) {
 	setCookie(key, 'a', -1)
 }
 
-
 /**
  * 获取包含 ClassName 的 DOM 元素
  *
@@ -67,7 +64,6 @@ function removeCookie (key) {
  * @param {string} className
  * @param {object}
  */
-
 function getByClass(parent, className) {
 	var ele = parent.getElementsByTagName('*')
 	// 匹配一个单词

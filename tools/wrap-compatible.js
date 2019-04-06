@@ -29,7 +29,6 @@ function getStyle(ele, attr) {
   }
 }
 
-
 /**
  * 兼容性获取屏幕宽度
  */
@@ -44,7 +43,6 @@ function getClientWidth() {
 	return document.body.clientWidth
 }
 
-
 /**
  * 兼容性阻止事件冒泡
  *
@@ -58,7 +56,6 @@ function stopBubble (ev) {
 		ev.stopPropagation()
 	}
 }
-
 
 /**
  * 兼容性阻止默认事件
@@ -76,7 +73,6 @@ function stopDefault (ev) {
 	// or the follow method
 	// return false
 }
-
 
 /**
  * 兼容性事件绑定
@@ -99,7 +95,6 @@ function bind (target, type, fn) {
 	}
 }
 
-
 /**
  * 兼容性解除事件绑定
  *
@@ -120,7 +115,6 @@ function unbind (target, type, cb) {
 	}
 }
 
-
 /**
  * 兼容性绑定滚轮事件
  *
@@ -138,11 +132,11 @@ function mouseScroll (target, fn) {
 	}
 }
 
-
 /**
  * 兼容PC和移动端 -- 触摸和点击事件
  */
-function device () {
+function getDeviceTouch () {
+	var touchstart, touchmove, touchend
 	var isMobile = /Mobile/i.test(navigator.userAgent)
 	if (isMobile) {
 		touchstart = 'touchstart'
@@ -154,4 +148,6 @@ function device () {
     touchmove = 'mousemove'
     touchend = 'mouseup'
 	}
+
+	return [touchstart, touchmove, touchend]
 }
