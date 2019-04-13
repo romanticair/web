@@ -44,15 +44,17 @@ function combine(arr, size) {
   return allResult
 }
 
+
 /**
 * [getRound 四舍五入保留小数]
 * @param  {number}  num  [待转化的浮点数]
 * @param  {number}  len  [保留小数位数]
 * @return {number}
 */
-getRound(num, len) {
+function getRound(num, len) {
   return Math.round(num * Math.pow(10, len)) / Math.pow(10, len)
 }
+
 
 /**
  * 生成指定范围内的随机数
@@ -80,6 +82,21 @@ function randomBetween(min, max) {
   }
   return Math.floor(Math.random() * (max - min) + min)
 }
+
+
+/**
+ * 数字补零
+ *
+ * @param {number} num
+ * @returns {string}
+ */
+function zeroize (num) {
+  if (num < 10) {
+    return '0' + num
+  }
+    return '' + num
+}
+
 
 /**
  * [function crc32加密]
