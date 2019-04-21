@@ -1,0 +1,28 @@
+@charset "UTF-8";
+.w50 {
+  width: 50%;
+}
+.f_left {
+  float: left;
+}
+.f_right {
+  float: right;
+}
+.w50-f_left {
+  width: 50%;
+  float: left;
+}
+/*
+1.定义了参数(无默认值)，调用是时必须传参
+2.怎么定义默认值和定义变量值一样
+3.定义了参数(有默认值),可传可不传
+*/
+.w50-f_left {
+  width: 50%;
+  float: right;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -o-border-radius: 20px;
+  -ms-border-radius: 20px;
+}

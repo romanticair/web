@@ -1,0 +1,68 @@
+@charset "UTF-8";
+/*注释：在css当做可使用，所有编译的过程当中生成在css文件*/
+/*变量*/
+div {
+  background: #e92323;
+}
+a:hover {
+  color: #e92323;
+}
+.box {
+  color: #e92323;
+}
+.w50 {
+  width: 50%;
+}
+.f_left {
+  float: left;
+}
+.f_right {
+  float: right;
+}
+.w50-f_left {
+  width: 50%;
+  float: left;
+}
+/*
+1.定义了参数(无默认值)，调用是时必须传参
+2.怎么定义默认值和定义变量值一样
+3.定义了参数(有默认值),可传可不传
+*/
+.w50-f_left {
+  width: 50%;
+  float: right;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -o-border-radius: 20px;
+  -ms-border-radius: 20px;
+}
+.wjs_app {
+  display: block;
+}
+.wjs_app img {
+  display: none;
+}
+.wjs_app:hover img {
+  display: block;
+  position: absolute;
+  left: 50%;
+  margin-left: -60px;
+  border: 1px solid #ccc;
+  border-top: none;
+  top: 40px;
+  z-index: 100000;
+}
+.wjs_app > div {
+  display: block;
+}
+/*运算*/
+ul {
+  width: 500%;
+}
+ul li {
+  width: 20%;
+  color: #ffffff;
+  background: #262626;
+  border-color: #990000;
+}

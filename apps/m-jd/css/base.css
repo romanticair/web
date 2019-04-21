@@ -1,0 +1,67 @@
+/*===========reset css=============*/
+*,
+*::before,
+*::after{
+	/*所有的标签和伪元素都选中*/
+	margin: 0;
+	padding: 0;
+	/*移动端常用布局是非固定像素的*/
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	/*点击高亮效果的清除*/
+	tag-hightlight-color: transparent;
+	-webkit-tag-hightlight-color: transparent;
+}
+body{
+	font-size: 14px;
+	font-family: "Microsoft YaHei", sans-serif;
+	color: #333;
+}
+ul,ol{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: #333;
+}
+input,textarea{
+	border: none;
+	outline: none;
+	/*不允许改变尺寸*/
+	resize: none;
+	/*元素外观*/
+	-webkit-appearance: none;
+}
+/*===========common css=============*/
+.f_left{
+	float: left;
+}
+.f_right{
+	float: right;
+}
+.clearfix::before,
+.clearfix::after{
+	/*不占用任何位置且不显示并清除浮动*/
+	content: "";
+	display: block;
+	visibility: hidden;
+	height: 0;
+	clear: both;
+}
+.m_l10{
+	margin-left: 10px;
+}
+.m_r10{
+	margin-right: 10px;
+}
+.m_t10{
+	margin-top: 10px;
+}
+.m_b10{
+	margin-bottom: 10px;
+}
+/*使用精灵图的公用样式*/
+[class^="icon_"],[class*=" icon_"]{
+	background: url("../images/sprites.png") no-repeat;
+	background-size: 200px 200px;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Snake will never die.</title>
+	<script src="Food.js"></script>
+	<script src="Snake.js"></script>
+	<script src="Game.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			var game = new Game(document.querySelector(".map"));
+			game.init();
+		}
+	</script>
+	<style>
+		.map {
+			position: relative;
+			width: 800px;
+			height: 400px;
+			background-color: gray;
+		}
+	</style>
+</head>
+<body>
+	<!--蛇吃食物游戏，初始化的蛇有三段，每吃到一个食物则增长一段，每吃三个食物，-->
+	<!--蛇头部颜色都即将变化。当前游戏仅设一个无障碍且每次仅生产一个食物的地图，-->
+	<!--增加新规则后再更新说明。-->
+	<div class="map"></div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+@db: block;
+
+.wjs_app{
+  display:@db;
+  img{
+    display: none;
+  }
+  &:hover img{
+    display:@db;
+    position: absolute;
+    left: 50%;
+    margin-left: -60px;
+    border: 1px solid #ccc;
+    border-top: none;
+    top: 40px;
+    z-index: 100000;
+  }
+  > div{
+    display:@db;
+  }
+}

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zn-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>百度外卖</title>
+	<!-- 1. 设计稿将尺寸分成 20 等份，以 iphone5 320x568 作为基准值，用 rem 作为单位进行布局，所以 640x* 的稿子在 iphone5 下，html 的 font-size 值等于 640 / 20 = 32px -->
+	<!-- 2. 其它不同设备进行访问时，device-width 也会不同，因此要监听设备来改变 html 的 font-size，计算公式即 device-width / 20 -->
+	<!-- 3. 而页面中的元素要借助 rem 来计算尺寸，例如原稿中顶部通栏高度 120px，在这里就要写成 120/32*1rem，即尺寸大于 ihpone5 的，元素尺寸会相应变大，小于的反之，从而达到协调 -->
+	<!-- 4. 因此，通过一个小公式改变 html 的 font-size 的值，用 rem 来写页面样式，虽是基于 iphone 写出来的，但却能 `适配` 众多设备 -->
+	<link rel="stylesheet" href="./css/index.css">
+  <script>
+    window.onload = function () {
+      document.querySelector('html').style.fontSize = window.screen.width / 20 + 'px'
+    }
+
+    // PC 端测试用到，上线后可撤掉
+    window.onresize = function () {
+      document.querySelector('html').style.fontSize = window.screen.width / 20 + 'px'
+    }
+  </script>
+</head>
+<body>
+  <div class="wrapper">
+    <!--music-->
+    <audio src="music/hlw.mp3" autoplay loop></audio>
+    <button type="button" class="music"></button>
+    <!-- loading -->
+    <div class="loading">
+      <div class="rider"></div>
+      <div class="progress">
+        <div class="step"></div>
+      </div>
+      <div class="loading-text"></div>
+      <div class="logo"></div>
+      <div class="copyright">@ 2018 DuBi Waimai produced.</div>
+    </div>
+
+    <!-- welcome -->
+    <div class="welcome">
+      <div class="cloud"></div>
+      <div class="road"></div>
+      <div class="grass"></div>
+      <div class="tree"></div>
+      <div class="theme">
+        <div class="greeting"></div>
+      </div>
+      <div class="rider">
+        <div class="bear"></div>
+        <div class="jet"></div>
+      </div>
+      <div class="circle-box">
+        <div class="spin"></div>
+        <div class="go-btn"></div>
+      </div>
+      <div class="tip">长按启动，观外卖之路</div>
+    </div>
+
+    <!-- swiper -->
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide slider-1">
+          <div class="title">
+            <h3>生活中，</h3>
+            <p>经常有这种时候...</p>
+            <div class="line"></div>
+          </div>
+          <div class="scroll-p1">
+            <div class="bg"></div>
+            <div class="sphere"></div>
+            <div class="work">
+              <div class="files">
+                <div class="paper1"></div>
+                <div class="paper2"></div>
+              </div>
+            </div>
+            <div class="bear"></div>
+            <div class="bubble">
+              <div class="msg"></div>
+            </div>
+          </div>
+          <div class="scroll-p2">
+            <div class="bg"></div>
+            <div class="sphere"></div>
+            <div class="life">
+              <div class="leg1"></div>
+              <div class="leg2"></div>
+            </div>
+            <div class="bear"></div>
+            <div class="bubble">
+              <div class="msg"></div>
+            </div>
+          </div>
+          <div class="scroll-p3">
+            <div class="bg"></div>
+            <div class="sphere"></div>
+            <div class="gossip">
+              <div class="word1"></div>
+              <div class="word2"></div>
+              <div class="word3"></div>
+              <div class="word4"></div>
+            </div>
+            <div class="bear"></div>
+            <div class="bubble">
+              <div class="msg"></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide slider-2">
+          <div class="title">
+            <h3>这时候，</h3>
+            <p>如果有一份美味外卖...</p>
+            <p>正好出现...</p>
+            <div class="line"></div>
+          </div>
+          <div class="bg"></div>
+          <div class="sphere"></div>
+          <div class="bear">
+            <div class="l-face"></div>
+            <div class="r-face"></div>
+            <div class="l-hand"></div>
+            <div class="r-hand"></div>
+          </div>
+          <div class="table"></div>
+          <div class="food"></div>
+        </div>
+        <div class="swiper-slide slider-3">
+          <div class="title">
+            <h3>这时候，</h3>
+            <p>如果有一份美味外卖...</p>
+            <p>正好出现...</p>
+            <div class="line"></div>
+          </div>
+          <div class="bg"></div>
+          <div class="sphere"></div>
+          <div class="bear"></div>
+          <div class="license"></div>
+          <div class="oil"></div>
+          <div class="evil"></div>
+        </div>
+        <div class="swiper-slide slider-4">
+          <div class="title">
+            <h3>百度外卖</h3>
+            <p>只做有品质的外卖...</p>
+            <p>操作快捷...</p>
+            <div class="line"></div>
+          </div>
+          <div class="bg"></div>
+          <div class="sphere"></div>
+          <div class="bear"></div>
+          <div class="card1"></div>
+          <div class="card2"></div>
+          <div class="card3"></div>
+        </div>
+        <div class="swiper-slide slider-5">
+          <div class="title">
+            <h3>无论前方</h3>
+            <p>狂风，大雨，海曙飘雪...</p>
+            <p>始终坚持在路上...</p>
+            <div class="line"></div>
+          </div>
+          <div class="bg"></div>
+          <div class="sphere"></div>
+          <div class="bear-box">
+            <div class="cloud">
+              <div class="snow"></div>
+              <div class="snow"></div>
+              <div class="snow"></div>
+              <div class="snow"></div>
+              <div class="snow"></div>
+              <div class="snow"></div>
+              <div class="snow"></div>
+              <div class="snow"></div>
+              <div class="snow"></div>
+              <div class="snow"></div>
+              <div class="leaf"></div>
+              <div class="leaf"></div>
+              <div class="leaf"></div>
+              <div class="leaf"></div>
+              <div class="leaf"></div>
+              <div class="leaf"></div>
+              <div class="leaf"></div>
+              <div class="leaf"></div>
+              <div class="leaf"></div>
+              <div class="leaf"></div>
+            </div>
+            <div class="rider"></div>
+            <div class="jet"></div>
+          </div>
+        </div>
+        <div class="swiper-slide slider-6">
+          <div class="title">
+            <h3>丰富礼品</h3>
+            <p>让你边吃，边省钱...</p>
+            <div class="line"></div>
+          </div>
+          <div class="bg"></div>
+          <div class="sphere"></div>
+          <div class="bear">
+            <div class="gift-box">
+              <div class="gift1"></div>
+              <div class="gift2"></div>
+              <div class="gift3"></div>
+              <div class="gift4"></div>
+              <div class="gift5"></div>
+              <div class="gift6"></div>
+              <div class="gift7"></div>
+              <div class="gift8"></div>
+              <div class="gift9"></div>
+              <div class="gift10"></div>
+              <div class="gift11"></div>
+              <div class="gift12"></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide slider-7">
+          <div class="title">
+            <h3>所有的努力</h3>
+            <p>就是为了健康美味的外卖...</p>
+            <p>层现给你...</p>
+            <div class="line"></div>
+          </div>
+          <div class="street-light">
+            <div class="lamplight"></div>
+          </div>
+          <div class="sphere"></div>
+          <div class="moto"></div>
+          <div class="bear"></div>
+          <a class="share"></a>
+          <div class="link">waimai.baidu.com</div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./lib/swiper/swiper.min.js"></script>
+  <script src="./lib/zepto/zepto.js"></script>
+  <script src="./lib/zepto/event.js"></script>
+  <script src="./lib/zepto/touch.js"></script>
+  <script src="./lib/zepto/fx.js"></script>
+  <script src="./lib/zepto/fx_methods.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+</html>

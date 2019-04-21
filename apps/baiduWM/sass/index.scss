@@ -1,0 +1,1451 @@
+//降低请求次数，合并样式。切忌按顺序导入
+@import './normalize.scss';
+@import '../lib/swiper/swiper.min.scss';
+@import './base.scss';
+
+html,
+body {
+  height: 100%;
+}
+
+//将 px 转换为 rem 单位
+@function p2r($px) {
+  @return ($px/32)*1rem;
+}
+
+//设置尺寸
+@mixin size($width, $height) {
+  width: p2r($width);
+  height: p2r($height);
+}
+
+//设置背景图
+@mixin bg($url) {
+  position: absolute;
+  background: url($url)no-repeat center/100% 100%;
+}
+
+//设置背景图并且水平居中显示
+@mixin bgc($url, $width) {
+  position: absolute;
+  background: url($url)no-repeat center/100% 100%;
+  left: 50%;
+  margin-left: p2r(-$width/2);
+  //transform: translateX(-50%);
+}
+
+//设置背景图并且水平垂直居中显示
+@mixin bgcc($url) {
+  position: absolute;
+  background: url($url)no-repeat center/100% 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  //music
+  .music {
+    display: block;
+    @include size(36, 36);
+    @include bg('../image/play.png');
+    right: p2r(32);
+    top: p2r(32);
+    z-index: 999;
+  }
+  //loading
+  .loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: #ffece9;
+    z-index: 3;
+    .rider {
+      position: absolute;
+      width: (154/32)*1rem;
+      height: (121/32)*1rem;
+      top: (233/32)*1rem;
+      right: (108/32)*1rem;
+      background: url(../image/loading/rider1_.png)no-repeat center/100% 100%;
+    }
+    .progress {
+      position: absolute;
+      width: (416/32)*1rem;
+      height: (20/32)*1rem;
+      top: (360/32)*1rem;
+      left: 50%;
+      margin-left: (-416/32/2)*1rem;
+      border: 2px solid #373838;
+      border-radius: (20/32)*1rem;
+    }
+    .loading-text {
+      position: absolute;
+      width: (220/32)*1rem;
+      height: (28/32)*1rem;
+      top: (420/32)*1rem;
+      left: 50%;
+      margin-left: (-220/32/2)*1rem;
+      background: url(../image/loading/loading-txt.png)no-repeat center/100% 100%;
+    }
+    .logo {
+      position: absolute;
+      width: (162/32)*1rem;
+      height: (39/32)*1rem;
+      bottom: (118/32)*1rem;
+      left: 50%;
+      margin-left: (-162/32/2)*1rem;
+      background: url(../image/loading/waimai-logo.png)no-repeat center/100% 100%;
+    }
+    .copyright {
+      position: absolute;
+      width: 100%;
+      bottom: (73/32)*1rem;
+      font-size: (24/32)*1rem;
+      color: #e0979d;
+      text-align: center;
+    }
+  }
+
+  //welcome
+  .welcome {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: deepskyblue;
+    z-index: 2;
+    .cloud {
+      position: absolute;
+      width: (640/32)*1rem;
+      height: (673/32)*1rem;
+      bottom: 0;
+      background: url(../image/page1/clouds.png)no-repeat center/100% 100%;
+    }
+    .road {
+      position: absolute;
+      width: (640/32)*1rem;
+      height: (396/32)*1rem;
+      bottom: 0;
+      background: url(../image/page1/road.png)no-repeat center/100% 100%;
+    }
+    .grass {
+      position: absolute;
+      width: (640/32)*1rem;
+      height: (228/32)*1rem;
+      bottom: 0;
+      left: 0;
+      background: url(../image/page1/grass.png)no-repeat left/100% 100%;
+    }
+    .tree {
+      position: absolute;
+      width: (599/32)*1rem;
+      height: (71/32)*1rem;
+      bottom: (352/32)*1rem;
+      left: 50%;
+      //transform: translateX(-50%);
+      margin-left: (-599/2/32)*1rem;
+      background: url(../image/page1/trees.png)no-repeat center/100% 100%;
+    }
+    .theme {
+      position: absolute;
+      width: (397/32)*1rem;
+      height: (224/32)*1rem;
+      top: (42/32)*1rem;
+      left: 50%;
+      //transform: translateX(-50%);
+      margin-left: (-397/2/32)*1rem;
+      background: url(../image/page1/theme-title.png)no-repeat center/100% 100%;
+      .greeting {
+        position: absolute;
+        width: (75/32)*1rem;
+        height: (75/32)*1rem;
+        top: (20/32)*1rem;
+        right: (8/32)*1rem;
+        background: url(../image/page1/hello.png)no-repeat center/100% 100%;
+      }
+    }
+    .rider {
+      position: absolute;
+      width: (167/32)*1rem;
+      height: (279/32)*1rem;
+      bottom: (346/32)*1rem;
+      left: 50%;
+      //transform: translateX(-50%);
+      margin-left: (-167/2/32)*1rem;
+      .bear {
+        width: 100%;
+        height: 100%;
+        @include bg('../image/page1/rider2.png');
+      }
+      .jet {
+        position: absolute;
+        width: (167/32)*1rem;
+        height: (32/32)*1rem;
+        bottom: 0;
+        background: url(../image/page1/jet1.png)no-repeat center/100% 100%;
+      }
+    }
+    .circle-box {
+      position: absolute;
+      display: flex;
+      width: (208/32)*1rem;
+      height: (208/32)*1rem;
+      bottom: (86/32)*1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      justify-content: center;
+      align-items: center;
+      background: url(../image/page1/circle1.png)no-repeat center/100% 100%;
+      .spin {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: url(../image/page1/circle2.png)no-repeat center/100% 100%;
+      }
+      .go-btn {
+        width: (124/32)*1rem;
+        height: (113/32)*1rem;
+        background: url(../image/page1/bear-btn-aft.png)no-repeat center/100% 100%;
+      }
+    }
+    .tip {
+      position: absolute;
+      width: 100%;
+      height: (32/32)*1rem;
+      bottom: (38/32)*1rem;
+      text-align: center;
+      color: #596b10;
+    }
+  }
+
+  //slider-1
+  .swiper-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    //每一个 scroller 的 title 几乎都类似，提出来
+    .title {
+      position: absolute;
+      left: p2r(32);
+      top: p2r(32);
+      padding-left: p2r(20);
+      color: #fff;
+      h3 {
+        font-size: p2r(64);
+      }
+      p {
+        font-size: p2r(24);
+        padding-top: p2r(12);
+      }
+      .line {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: p2r(5);
+        height: 100%;
+        background: #fff;
+      }
+    }
+    .slider-1 {
+      //可以把 sphere 和 bear 给提到这一级，可以省掉很多代码
+      //后面再合并吧
+      .scroll-p1 {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: #be8651;
+        .bg {
+          @include size(576, 573);
+          @include bgc('../image/page2/bg1.png', 576);
+          bottom: p2r(252);
+        }
+        .sphere {
+          @include size(640, 356);
+          @include bgc('../image/page2/sphere1.png', 640);
+          bottom: 0;
+        }
+        .work {
+          @include size(439, 349);
+          @include bgc('../image/page2/front1.png', 439);
+          bottom: p2r(290);
+          .files {
+            @include size(85, 50);
+            position: absolute;
+            bottom: p2r(104);
+            left: p2r(27);
+            //background: url(../image/page2/papers.png)no-repeat bottom right;
+            //background-size: p2r(115) p2r(114);
+            //background:bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment initial|inherit;
+            background: url(../image/page2/papers.png) bottom right/p2r(115) p2r(114) no-repeat;
+            .paper1 {
+              @include size(86, 26);
+              position: absolute;
+              left: p2r(-70);
+              bottom: p2r(45);
+              background: url(../image/page2/papers.png)no-repeat 0 p2r(-32);
+              background-size: p2r(115) p2r(114);
+            }
+            .paper2 {
+              @include size(64, 20);
+              position: absolute;
+              right: 0;
+              bottom: p2r(80);
+              background: url(../image/page2/papers.png)no-repeat p2r(-45) 0;
+              background-size: p2r(115) p2r(114);
+            }
+          }
+        }
+        .bear {
+          @include size(178, 134);
+          @include bg('../image/page2/bear1.png');
+          bottom: 0;
+          right: p2r(38);
+        }
+        .bubble {
+          @include size(363, 119);
+          @include bg('../image/page2/txt-bubble.png');
+          bottom: p2r(140);
+          right: p2r(140);
+          .msg {
+            @include size(220, 30);
+            @include bgcc('../image/page2/txt-work.png');
+          }
+        }
+      }
+      .scroll-p2 {
+        display: none;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: #be8651;
+        .bg {
+          @include size(582, 520);
+          @include bgc('../image/page2/bg2.png', 582);
+          bottom: p2r(252);
+        }
+        .sphere {
+          @include size(640, 356);
+          @include bgc('../image/page2/sphere1.png', 640);
+          bottom: 0;
+        }
+        .life {
+          @include size(436, 332);
+          @include bgc('../image/page2/relax.png', 436);
+          bottom: p2r(270);
+          .leg1 {
+            @include size(113, 24);
+            @include bg('../image/page2/leg1.png');
+            left: p2r(195);
+            bottom: p2r(110);
+          }
+          .leg2 {
+            @include size(85, 71);
+            @include bg('../image/page2/leg2.png');
+            left: p2r(193);
+            bottom: p2r(120);
+          }
+        }
+        .bear {
+          @include size(178, 134);
+          @include bg('../image/page2/bear1.png');
+          bottom: 0;
+          right: p2r(38);
+        }
+        .bubble {
+          @include size(363, 119);
+          @include bg('../image/page2/txt-bubble.png');
+          bottom: p2r(140);
+          right: p2r(140);
+          .msg {
+            @include size(220, 30);
+            @include bgcc('../image/page2/txt-life.png');
+          }
+        }
+      }
+      .scroll-p3 {
+        display: none;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: #be8651;
+        .bg {
+          @include size(561, 516);
+          @include bgc('../image/page2/bg3.png', 561);
+          bottom: p2r(270);
+        }
+        .sphere {
+          @include size(640, 356);
+          @include bgc('../image/page2/sphere1.png', 640);
+          bottom: 0;
+        }
+        .gossip {
+          @include size(503, 229);
+          @include bgc('../image/page2/person.png', 503);
+          bottom: p2r(300);
+          .word1 {
+            @include size(92, 83);
+            @include bg('../image/page2/word1.png');
+            left: 0;
+            bottom: p2r(194);
+          }
+          .word2 {
+            @include size(77, 70);
+            @include bg('../image/page2/word2.png');
+            left: p2r(115);
+            bottom: p2r(245);
+          }
+          .word3 {
+            @include size(115, 104);
+            @include bg('../image/page2/word3.png');
+            right: p2r(130);
+            bottom: p2r(220);
+          }
+          .word4 {
+            @include size(79, 73);
+            @include bg('../image/page2/word4.png');
+            right: p2r(12);
+            bottom: p2r(230);
+          }
+        }
+        .bear {
+          @include size(178, 134);
+          @include bg('../image/page2/bear1.png');
+          bottom: 0;
+          right: p2r(38);
+        }
+        .bubble {
+          @include size(363, 119);
+          @include bg('../image/page2/txt-bubble.png');
+          bottom: p2r(140);
+          right: p2r(140);
+          .msg {
+            @include size(220, 30);
+            @include bgcc('../image/page2/txt-life.png');
+          }
+        }
+      }
+    }
+    .slider-2 {
+      background: #ee4143;
+      .bg {
+        @include size(592, 490);
+        @include bgc('../image/page3/bg4_.png', 592);
+        bottom: p2r(330);
+      }
+      .sphere {
+        @include size(640, 356);
+        @include bgc('../image/page3/sphere2.png', 640);
+        bottom: 0;
+      }
+      .bear {
+        @include size(227, 336);
+        position: absolute;
+        bottom: p2r(310);
+        left: 50%;
+        margin-left: p2r(-227/2);
+        background: url(../image/page3/bear2.png)no-repeat p2r(-103) p2r(-96);
+        background-size: p2r(368) p2r(427);
+        .l-face {
+          @include size(102, 102);
+          @include bg('../image/page3/face1.png');
+          left: p2r(-102);
+          top: 0;
+        }
+        .r-face {
+          @include size(101, 102);
+          @include bg('../image/page3/face2.png');
+          right: p2r(-101/2);
+          top: p2r(-102);
+        }
+        .l-hand {
+          @include size(74, 77);
+          @include bg('../image/page3/hand-left.png');
+          left: p2r(30);
+          top: p2r(180);
+        }
+        .r-hand {
+          @include size(74, 77);
+          @include bg('../image/page3/hand-right.png');
+          right: p2r(30);
+          top: p2r(180);
+        }
+      }
+      .table {
+        @include size(514, 258);
+        @include bgc('../image/page3/table.png', 514);
+        bottom: p2r(140);
+      }
+      .food {
+        @include size(354, 152);
+        @include bgc('../image/page3/foods.png', 354);
+        bottom: p2r(330);
+      }
+    }
+    .slider-3 {
+      background: #dd8a03;
+      .bg {
+        @include size(592, 580);
+        @include bgc('../image/page4/bg5.png', 592);
+        bottom: p2r(300);
+      }
+      .sphere {
+        @include size(640, 356);
+        @include bgc('../image/page4/sphere3.png', 640);
+        bottom: 0;
+      }
+      .bear {
+        @include size(206, 321);
+        @include bgc('../image/page4/bear3.png', 206);
+        bottom: p2r(195);
+      }
+      .license {
+        @include size(197, 140);
+        @include bg('../image/page4/license.png');
+        bottom: p2r(500);
+        left: p2r(40);
+      }
+      .oil {
+        @include size(231, 156);
+        @include bg('../image/page4/oil.png');
+        bottom: p2r(660);
+        left: p2r(205);
+      }
+      .evil {
+        @include size(198, 163);
+        @include bg('../image/page4/evil.png');
+        bottom: p2r(480);
+        right: p2r(30);
+      }
+    }
+    .slider-4 {
+      background: #3fa100;
+      .bg {
+        @include size(588, 333);
+        @include bgc('../image/page5/bg6.png', 588);
+        bottom: p2r(300);
+      }
+      .sphere {
+        @include size(640, 356);
+        @include bgc('../image/page5/sphere4.png', 640);
+        bottom: 0;
+      }
+      .bear {
+        @include size(309, 325);
+        @include bg('../image/page5/bear4.png');
+        bottom: p2r(170);
+        left: p2r(200);
+      }
+      .card1 {
+        @include size(160, 175);
+        @include bg('../image/page5/card1.png');
+        bottom: p2r(435);
+        left: p2r(32);
+      }
+      .card2 {
+        @include size(161, 209);
+        @include bg('../image/page5/card2.png');
+        bottom: p2r(530);
+        left: p2r(240);
+      }
+      .card3 {
+        @include size(167, 184);
+        @include bg('../image/page5/card3.png');
+        bottom: p2r(420);
+        right: p2r(45);
+      }
+    }
+    .slider-5 {
+      background: #0098cf;
+      .bg {
+        @include size(594, 493);
+        @include bgc('../image/page6/bg7.png', 594);
+        bottom: p2r(300);
+      }
+      .sphere {
+        @include size(640, 356);
+        @include bgc('../image/page6/sphere5.png', 640);
+        bottom: 0;
+      }
+      .bear-box {
+        @include size(230, 390);
+        position: absolute;
+        bottom: p2r(175);
+        left: 50%;
+        margin-left: p2r(-230/2);
+        .cloud {
+          @include size(432, 160);
+          @include bgc('../image/page6/weather-cloud.png', 432);
+          top: p2r(-240);
+        }
+        .rider {
+          width: 100%;
+          height: 100%;
+          @include bg('../image/page6/rider2.png');
+        }
+        .jet {
+          @include size(114, 26);
+          @include bgc('../image/page6/shadow.png', 114);
+          bottom: 0;
+        }
+      }
+    }
+    .slider-6 {
+      background: #b527a0;
+      .bg {
+        @include size(588, 333);
+        @include bgc('../image/page7/bg8.png', 588);
+        bottom: p2r(300);
+      }
+      .sphere {
+        @include size(640, 356);
+        @include bgc('../image/page7/sphere6.png', 640);
+        bottom: 0;
+      }
+      .bear {
+        @include size(285, 328);
+        @include bgc('../image/page7/bear5.png', 285);
+        bottom: p2r(200);
+        .gift-box {
+          position: absolute;
+          top: p2r(30);
+          left: p2r(130);
+          //用`一圈` 340 来算 28deg，半径 240
+          //rotateZ 之后，由于坐标轴改变了方向，所以 translate 的位移方向也就变化了，
+          //因此可以为其设置半径 240，朝着 rotateZ(28deg*n) 方向偏移
+          .gift1 {
+            @include size(35, 29);
+            @include bgc('../image/page7/gift1.png', 35);
+            transform: rotateZ(28deg) translateY(p2r(240));
+          }
+          .gift2 {
+            @include size(93, 79);
+            @include bgc('../image/page7/gift2.png', 93);
+            transform: rotateZ(28deg*2) translateY(p2r(240));
+          }
+          .gift3 {
+            @include size(72, 64);
+            @include bgc('../image/page7/gift3.png', 72);
+            transform: rotateZ(28deg*3) translateY(p2r(240));
+          }
+          .gift4 {
+            @include size(91, 73);
+            @include bgc('../image/page7/gift4.png', 91);
+            transform: rotateZ(28deg*4) translateY(p2r(240));
+          }
+          .gift5 {
+            @include size(99, 65);
+            @include bgc('../image/page7/gift5.png', 99);
+            transform: rotateZ(28deg*5) translateY(p2r(240));
+          }
+          .gift6 {
+            @include size(107, 80);
+            @include bgc('../image/page7/gift6.png', 107);
+            transform: rotateZ(28deg*6) translateY(p2r(240));
+          }
+          .gift7 {
+            @include size(107, 80);
+            @include bgc('../image/page7/gift7.png', 107);
+            transform: rotateZ(28deg*7) translateY(p2r(240));
+          }
+          .gift8 {
+            @include size(88, 64);
+            @include bgc('../image/page7/gift8.png', 88);
+            transform: rotateZ(28deg*8) translateY(p2r(240));
+          }
+          .gift9 {
+            @include size(78, 50);
+            @include bgc('../image/page7/gift9.png', 78);
+            transform: rotateZ(28deg*9) translateY(p2r(240));
+          }
+          .gift10 {
+            @include size(49, 37);
+            @include bgc('../image/page7/gift10.png', 49);
+            transform: rotateZ(28deg*10) translateY(p2r(240));
+          }
+          .gift11 {
+            @include size(51, 31);
+            @include bgc('../image/page7/gift11.png', 51);
+            transform: rotateZ(28deg*11) translateY(p2r(240));
+          }
+          .gift12 {
+            @include size(37, 23);
+            @include bgc('../image/page7/gift12.png', 37);
+            transform: rotateZ(28deg*12) translateY(p2r(240));
+          }
+        }
+      }
+    }
+    .slider-7 {
+      background: #19072a;
+      .street-light {
+        @include size(80, 443);
+        @include bg('../image/page8/streetlight.png');
+        left: p2r(240);
+        bottom: p2r(300);
+        .lamplight {
+          @include size(437, 427);
+          @include bg('../image/page8/lamplight.png');
+          top: p2r(10);
+          left: p2r(-140);
+        }
+      }
+      .sphere {
+        @include size(640, 384);
+        @include bgc('../image/page8/sphere7.png', 640);
+        bottom: 0;
+      }
+      .moto {
+        @include size(200, 137);
+        @include bg('../image/page8/moto.png');
+        left: p2r(110);
+        bottom: p2r(335);
+      }
+      .bear {
+        @include size(276, 271);
+        @include bg('../image/page8/bear6.png');
+        left:p2r(230);
+        bottom: p2r(280);
+      }
+      .share {
+        @include size(379, 113);
+        @include bgc('../image/page8/share.png', 379);
+        display: block;
+        bottom: p2r(140);
+      }
+      .link {
+        position: absolute;
+        width: 100%;
+        bottom: p2r(70);
+        text-align: center;
+        font-size: p2r(24);
+        color: #b579d6;
+      }
+    }
+  }
+}
+
+
+/*
+** 动画
+*/
+
+// loading 区域
+//进度，从右向左进行
+@keyframes steps {
+  to {
+    width: 100%;
+  }
+}
+@keyframes riding {
+  10% {transform: translate(p2r(-26.2), -5%)}
+  20% {transform: translate(p2r(-26.2*2), 0)}
+  30% {transform: translate(p2r(-26.2*3), -5%)}
+  40% {transform: translate(p2r(-26.2*4), 0)}
+  50% {transform: translate(p2r(-26.2*5), -5%)}
+  60% {transform: translate(p2r(-26.2*6), 0)}
+  70% {transform: translate(p2r(-26.2*7), -5%)}
+  80% {transform: translate(p2r(-26.2*8), 0)}
+  90% {transform: translate(p2r(-26.2*9), -5%)}
+  100% {transform: translate(p2r(-26.2*10), 0)}
+}
+.loading {
+  .step {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    //和车子一样长
+    width: (154/32)*1rem;
+    background: #fc2e4d;
+  }
+}
+// animate 动画类
+.loading.animate {
+  .step {
+    animation: steps 1s linear forwards;
+  }
+  .rider {
+    animation: riding 1s linear forwards;
+  }
+}
+
+// welcome 区域
+// 大地升起
+@keyframes roadUp {
+  to {
+    height: p2r(396);
+  }
+}
+// 大变小
+@keyframes b2s {
+  from {
+    transform: scale(2, 1);
+  }
+  to {
+    opacity: 1;
+  }
+}
+// 从上向下弹性移入
+@keyframes bounceInUp {
+  from {
+    transform: translateY(-200%);
+  }
+  80% {
+    transform: translateY(10%);
+    opacity: .6;
+  }
+  90% {
+    transform: translateY(-10%);
+    opacity: .8;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+// 绕圈圈
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+// 淡淡层现
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+// 从上往下滑入
+@keyframes slideDown {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+// 上下抖动
+@keyframes jitter {
+  from {
+    transform: translateY(-5%);
+  }
+  to {
+    transform: none;
+  }
+}
+// 小变大
+@keyframes s2b {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.wrapper .welcome {
+  .road {
+    height: p2r(50);
+  }
+  .grass {
+    opacity: 0;
+  }
+  .tree {
+    opacity: 0;
+  }
+  .go-btn {
+    opacity: 0;
+    transform: scale(0);
+  }
+  .rider{
+    opacity: 0;
+    .jet {
+      opacity: 0;
+    }
+  }
+  .theme {
+    opacity: 0;
+  }
+  .greeting {
+    opacity: 0;
+  }
+}
+
+//animate 动画类
+.welcome.animate {
+  .road {
+    animation: roadUp 0.5s forwards;
+  }
+  .grass {
+    animation: b2s .5s .5s forwards;
+  }
+  .tree {
+    animation: bounceInUp .5 1s forwards;
+  }
+  .circle-box {
+    .spin {
+      animation: rotate 1s infinite linear;
+    }
+    .go-btn {
+      animation: fadeIn .5s 1.5s forwards;
+    }
+  }
+  .rider {
+    animation: slideDown .5s 2s forwards;
+    .bear {
+      animation: jitter .5s 2.5s infinite;
+    }
+    .jet {
+      animation: s2b .5s 2.5s infinite;
+    }
+  }
+  .theme {
+    animation: slideDown .5s 3s forwards;
+  }
+  .greeting {
+    animation: s2b .5s 3.5s forwards;
+  }
+}
+// 遇坑，动画位移后发生变化，不居中了。
+// transfrom,改成margin-left:-50%width;用了transfrom他会把初始位置定位到left:50%的地方。
+
+// swiper-container title 统一
+// 从右到左
+@keyframes r2l {
+  from {
+    transform: translateX(50%);
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes growIn {
+  to {
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+.swiper-container {
+  .swiper-slide {
+    .title {
+      h3,
+      p {
+        opacity: 0;
+      }
+      //选择器权重问题
+      div.line {
+        height: 0;
+      }
+    }
+  }
+  .swiper-slide.animate {
+    .title {
+      h3,
+      p {
+        animation: r2l 1s forwards;
+      }
+      .line {
+        animation: growIn 1s forwards;
+      }
+    }
+  }
+}
+
+// slider-1 区域
+// 旋转小弧度进来
+@keyframes rotateIn {
+  0% {
+    transform: rotateZ(90deg);
+  }
+  25% {
+    transform: rotateZ(-5deg);
+    opacity: 1;
+  }
+  70% {
+    transform: rotateZ(0);
+    opacity: 1;
+  }
+  80% {
+    transform: rotateZ(5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateZ(-90deg);
+    opacity: 0;
+  }
+}
+//抖动
+@keyframes shake {
+  25% {
+    transform: translate(5%, 0);
+  }
+  50% {
+    transform: translate(0, -2%);
+  }
+  75% {
+    transform: translate(-5%, 0);
+  }
+  100% {
+    transform: translate(0, 2%);
+  }
+}
+//抬脚
+@keyframes legUp {
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes hold {
+  0% {
+    transform: rotateZ(90deg);
+  }
+  25% {
+    transform: rotateZ(-5deg);
+    opacity: .8;
+  }
+  70% {
+    transform: rotateZ(0);
+    opacity: 1;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.slider-1 {
+  .scroll-p1 {
+    .bg {
+      opacity: 0;
+      transform-origin: 50% 200%;
+    }
+    .work {
+      opacity: 0;
+      transform-origin: 50% 200%;
+    }
+    .bubble {
+      opacity: 0;
+      transform-origin: right bottom;
+    }
+  }
+
+  .scroll-p2 {
+    .bg {
+      opacity: 0;
+      transform-origin: 50% 200%;
+    }
+    .life {
+      opacity: 0;
+      transform-origin: 50% 200%;
+      .leg2 {
+        transform-origin: left;
+        transform: rotate(30deg);
+      }
+    }
+    .bubble {
+      opacity: 0;
+      transform-origin: right bottom;
+    }
+  }
+
+  .scroll-p3 {
+    .bg {
+      opacity: 0;
+      transform-origin: 50% 200%;
+    }
+    .gossip {
+      opacity: 0;
+      transform-origin: 50% 200%;
+    }
+    .bubble {
+      opacity: 0;
+      transform-origin: right bottom;
+    }
+  }
+}
+
+.slider-1.animate {
+  .scroll-p1 {
+    .bg {
+      animation: rotateIn 3s forwards;
+    }
+    .work {
+      animation: rotateIn 3s .5s forwards;
+      .paper1,
+      .paper2 {
+        animation: shake .2s .5s infinite;
+      }
+    }
+    .bubble {
+      animation: rotateIn 3s 1s forwards;
+    }
+  }
+
+  .scroll-p2 {
+    .bg {
+      animation: rotateIn 3s forwards;
+    }
+    .life {
+      animation: rotateIn 3s .5s forwards;
+      .leg2 {
+        animation: legUp .5s 1s forwards;
+      }
+    }
+    .bubble {
+      animation: rotateIn 3s 1s forwards;
+    }
+  }
+
+  .scroll-p3 {
+    .bg {
+      animation: hold 3s forwards;
+    }
+    .gossip {
+      animation: hold 3s .5s forwards;
+      .word1,
+      .word2,
+      .word3,
+      .word4 {
+        animation: shake .2s infinite;
+      }
+    }
+    .bubble {
+      animation: hold 3s 1s forwards;
+    }
+  }
+}
+
+// slider-2 区域
+//向上滑出
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+//左手摆动
+@keyframes lHandSwing {
+  30% {
+    transform: rotateZ(-15deg);
+  }
+  60% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(15deg);
+  }
+}
+//右手摆动
+@keyframes rHandSwing {
+  30% {
+    transform: rotateZ(15deg);
+  }
+  60% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(-15deg);
+  }
+}
+
+.slider-2 {
+  .bg {
+    opacity: 0;
+    transform-origin: 50% 200%;
+  }
+  .bear {
+    opacity: 0;
+    .l-face {
+      opacity: 0;
+    }
+    .r-face {
+      opacity: 0;
+    }
+    .l-hand {
+      transform-origin: 40% 0;
+    }
+    .r-hand {
+      transform-origin: 60% 0;
+    }
+  }
+  .table {
+    opacity: 0;
+  }
+  .food {
+    opacity: 0;
+  }
+}
+
+.slider-2.animate {
+  .bg {
+    animation: hold 3s forwards;
+  }
+  .table {
+    animation: slideDown 2s .5s forwards;
+  }
+  .bear {
+    animation: slideUp 2s 1s forwards;
+    .l-face {
+      animation: fadeIn .5s 1.5s forwards, shake .2s infinite;
+    }
+    .r-face {
+      animation: fadeIn .5s 1.5s forwards, shake .2s infinite;
+    }
+    .l-hand {
+      animation: lHandSwing .3s 1s infinite;
+    }
+    .r-hand {
+      animation: rHandSwing .3s 1s infinite;
+    }
+  }
+  .food {
+    animation: slideDown 1s 2s forwards;
+  }
+}
+
+//slider-3
+//小变大，大缩小
+@keyframes zoom {
+  25% {
+    transform: scale(0.5);
+    opacity: .5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  65% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.slider-3 {
+  .bg {
+    opacity: 0;
+    transform-origin: 50% 200%;
+  }
+  .bear {
+    opacity: 0;
+  }
+  .license {
+    opacity: 0;
+  }
+  .oil {
+    opacity: 0;
+  }
+  .evil {
+    opacity: 0;
+  }
+
+}
+
+.slider-3.animate {
+  .bg {
+    animation: hold 3s forwards;
+  }
+  .bear {
+    animation: slideDown 1s .5s forwards;
+  }
+  .license {
+    animation: zoom 2s 1.5s forwards, shake .8s 2s infinite;
+  }
+  .oil {
+    animation: zoom 2s 1.5s forwards, shake .6s 2s infinite;
+  }
+  .evil {
+    animation: zoom 2s 1.5s forwards, shake .5s 2s infinite;
+  }
+}
+
+//slider-4
+.slider-4 {
+   .bg {
+     opacity: 0;
+     transform-origin: 50% 200%;
+   }
+   .bear {
+     opacity: 0;
+   }
+   .card1 {
+     opacity: 0;
+   }
+   .card2 {
+     opacity: 0;
+   }
+   .card3 {
+     opacity: 0;
+   }
+ }
+
+.slider-4.animate {
+  .bg {
+    animation: hold 3s forwards;
+  }
+  .bear {
+    animation: slideDown 1s .5s forwards;
+  }
+  .card1 {
+    animation: zoom 2s 1s forwards;
+  }
+  .card2 {
+    animation: zoom 2s 1s forwards;
+  }
+  .card3 {
+    animation: zoom 2s 1s forwards;
+  }
+}
+
+//slider-5
+//下雪
+@keyframes snowDown {
+  50% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(1500%) translateX(-100%);
+    opacity: 1;
+  }
+}
+//下包
+@keyframes bgDown {
+  50% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(1500%) translateX(100%);
+    opacity: 1;
+  }
+}
+
+.slider-5 {
+  .bg {
+    opacity: 0;
+    transform-origin: 50% 200%;
+  }
+  .bear-box {
+    opacity: 0;
+    .jet {
+      opacity: 0;
+    }
+    .cloud {
+      .snow {
+        @include size(32, 32);
+        @include bg('../image/page6/snow-piece.png');
+        bottom: 0;
+        opacity: 0;
+        @for $i from 1 through 10 {
+          &:nth-child(#{$i}) {
+            left: $i*10%;
+          }
+        }
+      }
+      .leaf {
+        @include size(40, 32);
+        @include bg('../image/page6/leaf.png');
+        bottom: 0;
+        opacity: 0;
+        @for $i from 1 through 10 {
+          &:nth-child(#{$i+10}) {
+            right: $i*10%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.slider-5.animate {
+  .bg {
+    animation: hold 3s forwards;
+  }
+  .bear-box {
+    animation: slideDown 1s 1s forwards;
+    .cloud {
+      animation: zoom .5s .5s forwards, shake 1s 1s infinite;
+      .snow {
+        @for $i from 1 through 10 {
+          &:nth-child(#{$i}) {
+            animation: snowDown 2s (1s+0.1*$i) infinite;
+          }
+        }
+      }
+      .leaf {
+        @for $i from 1 through 10 {
+          &:nth-child(#{$i+10}) {
+            animation: bgDown 2s (1s+0.1*$i) infinite;
+          }
+        }
+      }
+    }
+    .rider {
+      animation: jitter .5s 1s infinite;
+    }
+    .jet {
+      animation: s2b .5s 1s infinite;
+    }
+  }
+}
+
+//.slider-6
+//旋转的礼物
+@keyframes rotateGift {
+  from {
+    transform: none;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.slider-6 {
+  .bg {
+    opacity: 0;
+    transform-origin: 50% 200%;
+  }
+  .bear {
+    opacity: 0;
+    .gift-box {
+      div {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.slider-6.animate {
+  .bg {
+    animation: hold 3s forwards;
+  }
+  .bear {
+    animation: slideDown 1s .5s forwards;
+    .gift-box {
+      div {
+        @for $i from 1 through 12 {
+          &:nth-child(#{$i}) {
+            animation: rotateGift 3s .5s infinite;
+          }
+        }
+      }
+    }
+  }
+}

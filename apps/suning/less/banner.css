@@ -1,0 +1,29 @@
+.sn_banner {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.sn_banner ul:first-child {
+  width: 1000%;
+  -webkit-transform: X(-10%);
+  -moz-transform: X(-10%);
+  -ms-transform: X(-10%);
+  -o-transform: X(-10%);
+  transform: X(-10%);
+}
+.sn_banner ul:first-child li {
+  width: 10%;
+  float: left;
+}
+.sn_banner ul:first-child li a {
+  display: block;
+  width: 100%;
+}
+.sn_banner ul:first-child li a img {
+  display: block;
+  width: 100%;
+}
+.sn_banner ul:last-child {
+  position: absolute;
+  right: 20rem;
+}
