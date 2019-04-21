@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <title>数码闹钟</title>
+  <style>
+	  body {
+	    background: black;
+	    color: white;
+	    font-size: 50px;
+	  }
+  </style>
+</head>
+<body>
+  <img src="./img/0.png" />
+  <img src="./img/0.png" />
+  <img src="./img/0.png" />
+  <img src="./img/0.png" />
+  <img src="./img/0.png" />
+  <img src="./img/0.png" />
+<script>
+  function toDbl(date) {
+    if (date < 10) {
+        return '0' + date
+    } else {
+        return '' + date
+    }
+  }
+
+  window.onload = function() {
+    var aImg = document.getElementsByTagName('img')
+    function tick() {
+      var oDate = new Date()
+      var str = toDbl(oDate.getHours()) + toDbl(oDate.getMinutes()) + toDbl(oDate.getSeconds())
+      for (var i = 0; i < aImg.length; i++) {
+          // aImg[i].src='./img/' + str[i] + '.png'
+          //str[i]可能会有兼容性问题,可以用下面那个
+          aImg[i].src = './img/' + str.charAt(i) + '.png'
+	      }
+      }
+      setInterval(tick, 1000)
+      tick()
+  }
+</script>
+</body>
+</html>

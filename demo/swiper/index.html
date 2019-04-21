@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Swiper</title>
+  <style>
+    html {
+      font-size: 20px;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .wrapper {
+      width: 50rem;
+      height: 28rem;
+      margin: 1rem auto;
+    }
+
+    .swiper {
+      position: relative;
+      height: 100%;
+      background: #eee;
+      -webkit-webkit-transform-style: preserve-3d;
+      -moz-webkit-transform-style: preserve-3d;
+      -ms-webkit-transform-style: preserve-3d;
+      -o-webkit-transform-style: preserve-3d;
+      webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+    }
+
+    .swiper-item {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 10rem;
+      height: 12rem;
+      margin-left: -5rem;
+      margin-top: -6rem;
+      -webkit-webkit-transition: -webkit-transform .5s ease;
+      -moz-webkit-transition: -webkit-transform .5s ease;
+      -ms-webkit-transition: -webkit-transform .5s ease;
+      -o-webkit-transition: -webkit-transform .5s ease;
+      webkit-transition: -webkit-transform .5s ease;
+      transition: transform .5s ease;
+      visibility: visible;
+    }
+    
+    .swiper-item[item-index="1"] {background: pink;}
+    .swiper-item[item-index="2"] {background: red;}
+    .swiper-item[item-index="3"] {background: blue;}
+    .swiper-item[item-index="4"] {background: green;}
+    .swiper-item[item-index="5"] {background: yellow;}
+    .swiper-item[item-index="6"] {background: purple;}
+
+    .swiper-item img {
+      height: 100%;
+      width: 100%;
+    }
+
+    @media (max-device-width: 600px) {
+      html {font-size: 10px;}
+      .wrapper {
+        width: 36rem;
+        height: 28rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <ul class="swiper">
+      <li class="swiper-item" item-index="1">
+        <img src="https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=88f5664560061d95624631384bf50a5d/5ab5c9ea15ce36d3f4cd9c4d34f33a87e850b185.jpg" alt="">
+      </li>
+      <li class="swiper-item" item-index="2">
+      </li>
+      <li class="swiper-item" item-index="3">
+        <img src="http://hbimg.b0.upaiyun.com/902fc8c1e2ff12aa2500f077a1989f881020eb681b0a8-lN7KIQ_fw658" alt="">
+      </li>
+      <li class="swiper-item" item-index="4">
+      </li>
+      <li class="swiper-item" item-index="5">
+      </li>
+      <li class="swiper-item" item-index="6">
+      </li>
+    </ul>
+  </div>
+
+  <script src="../../tools/utils.js"></script>
+  <script src="swiper.js"></script>
+  <script>
+    window.onload = function () {
+      Swiper()
+    }
+  </script>
+</body>
+</html>
