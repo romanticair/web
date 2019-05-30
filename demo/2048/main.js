@@ -2,6 +2,7 @@ $(function () {
   var game2048 = function ($) {
     var $numBox = $('.num-container')
     var $scoreBox = $('.score-box')
+    var $restart = $('.restart-btn')
     var initN = 2
     var gridN = 4
     var unoccupiedPos = [11, 12, 13, 14, 21, 22, 23, 24, 31, 32, 33, 34, 41, 42, 43, 44]
@@ -37,9 +38,27 @@ $(function () {
             break
         }
 
-        isSlide ? generateNumGrid() : null
-        // 阻止默认行为
-        return isSlide ? false : true
+        // 阻止默认行为，生成格子
+        if (isSlide) {
+          e.preventDefault()
+          e.stopPropagation()
+          generateNumGrid()
+        }
+      })
+
+      $restart.click(function (e) {
+        if (confirm('开始新一局游戏？')) {
+          $numBox.html('')
+          
+          score = 0
+          unoccupiedPos.length = 0
+          occupiedPosRows.length = 0
+          occupiedPosCols.length = 0
+          unoccupiedPos = [11, 12, 13, 14, 21, 22, 23, 24, 31, 32, 33, 34, 41, 42, 43, 44]
+          for (var i = 0; i < initN; i++) {
+            generateNumGrid()
+          }
+        }
       })
     }
 
@@ -283,6 +302,7 @@ $(function () {
         .removeClass('num-' + n2)
         .addClass('num-' + total)
         .text(total)
+
       $scoreBox.text(score)
       flyScore(total)
       $old.remove()
@@ -336,6 +356,7 @@ $(function () {
         .addClass('num-' + num)
         .text(num)
         .appendTo($newNum)
+
       $newNum.appendTo($numBox)
       updatePos(posTag)
 
@@ -382,7 +403,7 @@ $(function () {
         occupiedPosCols.push(posTag)
         occupiedPosRows.sort()
         // 没有这个算法 -- 自己实现
-         occupiedPosCols.sort()
+        occupiedPosCols.sort()
         occupiedPosCols.sort(colsCompare)
       }
 
