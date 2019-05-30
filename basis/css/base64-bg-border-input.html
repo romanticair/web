@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .base64 {
+      background: url(data:image/jpg;base64,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);
+
+      width: 200px;
+      height: 200px;
+    }
+
+    .input label::after {
+      display: inline-block;
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid blue;
+      margin-left: 8px;
+      background: #fff;
+    }
+    
+    #option {
+      display: none;
+    }
+
+    #option:checked ~ label::after {
+      background: blue;
+    }
+
+    .border {
+      margin-top: 10px;
+    }
+    
+    .border div {
+      height: 0;
+      margin-bottom: 10px;
+      border: 10px solid transparent;
+    }
+
+    .border .d1 {
+      width: 0;
+      border-bottom-color: #777;
+    }
+
+    .border .d2 {
+      border-top-color: #777;
+    }
+
+    .border .d3 {
+      border-bottom-color: #777;
+      border-left-color: #777;
+      border-right-color: #777;
+    }
+
+    .border .d4 {
+      border-top-color: #777;
+      border-left-color: #777;
+      border-right-color: #777;
+    }
+
+    .background {
+      margin-top: 10px;
+    }
+
+    .background div {
+      height: 100px;
+      margin-bottom: 10px;
+    }
+
+    .b1 {
+      background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(150, 150, 150, 0.6), rgba(0, 0, 0, 0.3));
+    }
+
+    .b2 {
+      background: linear-gradient(45deg, rgba(255, 255, 255, 1), rgba(150, 150, 150, 0.6), rgba(0, 0, 0, 0.3)),
+        linear-gradient(45deg, red, blue, green);
+    }
+
+    .b3 {
+      background-image: linear-gradient(90deg, #000 20%, #fff);
+    }
+
+    .b4 {
+      background: repeating-radial-gradient(circle closest-side at center center,
+        blue 0%, yellow 10%, blue 20%, red 20%, yellow 30%, red 40%);
+    }
+
+    .background .b5 {
+      height: 10px;
+      background: repeating-linear-gradient(45deg, yellow 0%, blue 5%, red 10%, red 10%, blue 15%, yellow 20%);
+    }
+
+    .b6 {
+      background: linear-gradient(0, transparent 1px, rgba(200, 0, 0, 0.5) 0),
+                  linear-gradient(90deg, transparent 1px, rgba(200, 0, 0, 0.5) 0);
+      background-size: 10px 10px;
+    }
+
+    .b7{
+      background: linear-gradient(0, #fff 1px, transparent 0), 
+                  linear-gradient(90deg, #fff 1px, transparent 0),
+                  linear-gradient(0, #fff 2px, transparent 0), 
+                  linear-gradient(90deg, #fff 2px, transparent 0),
+                  #58a;
+      background-size: 10px 10px, 10px 10px, 20px 20px, 20px 20px;
+    }
+
+    .b8 {
+      background: linear-gradient(125deg, #fff 15px, #58a 0), 
+            linear-gradient(-125deg, #fff 15px, #58a 0),
+            linear-gradient(45deg, #fff 15px, #58a 0), 
+            linear-gradient(-45deg, #fff 15px, #58a 0);
+      background-size: 50% 50%;
+      background-position: top left, top right, bottom left, bottom right;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body>
+  <!-- base64 -->
+  <div class="base64"></div>
+  <!-- <img src="复制上面的base64路径" alt=""> -->
+
+  <!-- checkbox -->
+  <div class="input">
+    <input type="checkbox" id="option" name="option">
+    <label for="option">感兴趣</label>
+  </div>
+
+  <!-- 边框 -->
+  <div class="border">
+    <div class="d1"></div>
+    <div class="d2"></div>
+    <div class="d3"></div>
+    <div class="d4"></div>
+  </div>
+
+  <!-- background -->
+  <div class="background">
+    <div class="b1"></div>
+    <div class="b2"></div>
+    <div class="b3"></div>
+    <div class="b4"></div>
+    <div class="b5"></div>
+    <div class="b6"></div>
+    <div class="b7"></div>
+    <div class="b8"></div>
+  </div>
+</body>
+</html>
