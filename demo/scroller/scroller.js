@@ -89,7 +89,7 @@ Scroller.prototype.generateScroller = function () {
 	var timer = null
 	var page = 0
 	var speed = 0
-	var range = 100
+	var range = 50
 	var onoffT, onoffB
 
 	bind(this.scroller, touchstart, start)
@@ -104,18 +104,18 @@ Scroller.prototype.generateScroller = function () {
 		downY = touch.pageY
 		preY = touch.pageY
 		downT = _this.scroller.offsetTop
+
 		bind(document, touchmove, move)
 		bind(document, touchend, end)
 	}
 
 	function move (ev) {
-		ev.preventDefault()
 		_this.onActive = false
 		var touch = ev.changedTouches ? ev.changedTouches[0] : ev
 		var step = touch.pageY - downY
-		// 速度有点问题
 		speed = touch.pageY - preY
 		preY = touch.pageY
+
 		// 不能超出上(下拉过多)下(上拉过多)界限
 		// 上 top >= 0 下 top <= (this.boxH - this.scrollerH)
 		if (_this.scroller.offsetTop >= 0) {
@@ -124,8 +124,10 @@ Scroller.prototype.generateScroller = function () {
 				downY = touch.pageY
 				step = touch.pageY - downY
 			}
+
 			_this.scroller.style['top'] = step/3 + 'px'
 		}
+
 		else if (_this.scroller.offsetTop <= (_this.boxH - _this.scrollerH)) {
 			if (!onoffB) {
 				onoffB = true
@@ -134,6 +136,7 @@ Scroller.prototype.generateScroller = function () {
 			}
 			_this.scroller.style['top'] = (step/3 + _this.boxH - _this.scrollerH) + 'px'
 		}
+
 		else {
 			_this.scroller.style['top'] = downT + step + 'px'
 		}
@@ -142,7 +145,7 @@ Scroller.prototype.generateScroller = function () {
 	function end (ev) {
 		unbind(document, touchmove, move)
 		unbind(document, touchend, end)
-		var touch = ev.changedTouches ? ev.changedTouches[0] : ev
+
 		if (!_this.onActive) {
 			clearInterval(timer)
 			timer = setInterval(function () {
@@ -153,16 +156,18 @@ Scroller.prototype.generateScroller = function () {
 						_this.scroller.style['transition'] = '.2s'
 						_this.scroller.style['top'] = 0
 					}
+
 					else if (_this.scroller.offsetTop <= _this.boxH - _this.scrollerH) {
 						_this.scroller.style['transition'] = '.2s'
 						_this.scroller.style['top'] = _this.boxH - _this.scrollerH + 'px'
 					}
 				}
+				
 				else {
 					speed *= 0.9
 					_this.scroller.style['top'] = _this.scroller.offsetTop + speed + 'px'
 				}
-			}, 50)
+			}, 13)
 		}
 	}
 
