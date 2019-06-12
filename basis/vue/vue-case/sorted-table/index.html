@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Render 函数打造可排序的表单组件</title>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+
+    table {
+      width: 100%;
+      margin-bottom: 24px;
+      border-collapse: collapse;
+      border-spacing: 0;
+      empty-cells: show;
+      border: 1px solid #e9e9e9;
+    }
+
+    table th {
+      font-weight: 600;
+      white-space: nowrap;
+      color: #5c6b77;
+      background: #f7f7f7;
+    }
+
+    table td,
+    table th {
+      padding: 8px 16px;
+      text-align: left;
+      border: 1px solid #e9e9e9;
+    }
+
+    table th a {
+      display: inline-block;
+      margin: 0 4px;
+      cursor: pointer;
+    }
+
+    a.on,
+    a:hover{
+      color: #39f;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" v-cloak>
+    <sorted-table :columns="columns" :data="data"></sorted-table>
+    <button @click="handleAddData">添加数据</button>
+  </div>
+
+  <script src="../../lib/vue-2.4.0.js"></script>
+  <script src="sorted-table-render.js"></script>
+  <!--<script src="sorted-table-template.js"></script>-->
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        columns: [
+          { key: 'name', title: '姓名'},
+          { key: 'age', title: '年龄', sortable: true, width: 120 },
+          { key: 'birthday', title: '出生日期', sortable: true, width: 120 },
+          { key: 'address', title: '地址' }
+        ],
+        data: [
+          { name: '王小明', age: 18, birthday: '1999-02-21', address: '北京市早阳区药局' },
+          { name: '张小刚', age: 25, birthday: '1992-01-31', address: '北京市海淀区西二旗' },
+          { name: '李小红', age: 30, birthday: '1987-11-20', address: '上海市浦东新区世纪大道' },
+          { name: '周小伟', age: 28, birthday: '1991-10-21', address: '深圳市南山区深南大道' }
+        ]
+      },
+      methods: {
+        handleAddData () {
+          this.data.push({
+            name: '刘晓天',
+            age: 19,
+            birthday: '1998-05-30',
+            address: '北京市东城区东直门'
+          })
+        }
+      }
+    })
+  </script>
+</body>
+</html>

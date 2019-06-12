@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>调查小问卷</title>
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div id="app">
+      <div class="question-page" v-show="activePage === 1">
+        <h5>1.请问您的性别是：</h5>
+        <template v-cloak v-for="(val, key) in question.gender">
+          <input :value="key" :id="key" type="radio" name="gender">
+          <label :for="key" :key="key">{{ val }}</label>
+        </template>
+
+        <!-- <label for="male">
+          男<input v-model="gender" id="male" type="radio" name="gender">
+        </label>
+        <label for="female">
+          女<input v-model="gender" id="female" type="radio" name="gender">
+        </label>
+        <label for="keep">
+          保密<input v-model="gender" id="keep" type="radio" name="gender">
+        </label> -->
+      </div>
+
+      <div class="question-page" v-show="activePage === 2">
+        <h5>2.请选择您的兴趣爱好：</h5>
+        <template v-cloak v-for="(val, key) in question.hobbies">
+          <input type="checkbox" :value="key" :id="key" name="hobby" :key="key">
+          <label :for="key">{{ val }}</label>
+        </template>
+
+        <!-- 
+        <input type="checkbox" value="reading" name="hobby">看书</br>
+        <input type="checkbox" value="swimming" name="hobby">游泳</br>
+        <input type="checkbox" value="running" name="hobby">跑步</br>  
+        <input type="checkbox" value="movie" name="hobby">看电影</br>
+        <input type="checkbox" value="music" name="hobby">听音乐</br>
+        -->
+      </div>
+
+      <div class="question-page" v-show="activePage === 3">
+        <h5>3.请简单介绍一下自己：</h5>
+        <textarea v-model="question.intro" name="intro" cols="30" rows="10" placeholder="不少于20字"></textarea>
+      </div>
+
+      <div class="btn-group">
+        <button :class="{'light-high': finished}" v-show="finished">提交</button>
+        <button class="light-high" v-show="activePage != pageCount" @click="nextStep">下一步</button>
+        <button v-show="activePage != 1" @click="lastStep" :class="{'light-high': activePage === pageCount}">上一步</button>
+        <button @click="resetPage">重置</button>
+      </div>
+    </div>
+  </div>
+  <script src="../../lib/vue-2.4.0.js"></script>
+  <script src="demo.js"></script>
+</body>
+</html>

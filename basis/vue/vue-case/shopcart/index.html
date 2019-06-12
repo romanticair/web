@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>购物车</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div id="app" class="wrapper">
+    <!-- <template v-if="goodsList.length"> -->
+    <template v-if="true">
+      <table>
+        <caption>购物车实例</caption>
+        <thead>
+          <tr>
+            <th></th>
+            <th>商品分类</th>
+            <th>商品名称</th>
+            <th>商品单价</th>
+            <th>购买数量</th>
+            <th>选择</th>
+            <th>操作</th>
+            <th><button @click="selectAll">全选</button></th>
+          </tr>
+        </thead>
+        <tbody>
+          <template v-for="(items, key) in goodsList">
+            <tr v-for="(goods, index) in items" :key="goods.id">
+              <td>{{ index + 1 }}</td>
+              <td>{{ goods.cate }}</td>
+              <td>{{ goods.name }}</td>
+              <td>{{ goods.price }}</td>
+              <td>
+                <button @click="reduceCount(key, index)" :disabled="goods.count === 1 || !goods.selected">-</button>
+                {{ goods.count }}
+                <button @click="addCount(key, index)" :disabled="goods.count >= goods.store || !goods.selected">+</button>
+              </td>
+              <td>
+                <input @click="selectGoods(key, index)" :checked="goods.selected" type="radio"></input>
+              </td>
+              <td>
+                <button @click="removeGoods(key, index)">移除</button>
+              </td>
+              <td>{{ goods.selected ? '已选' : '未选'}}</td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+      
+      <div>总价：￥ {{ totalPrice }}</div>
+    </template>
+    
+    <div v-else>购物车为空</div>
+  </div>
+
+  <script src="../../lib/vue-2.4.0.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

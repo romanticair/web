@@ -1,0 +1,47 @@
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  overflow: hidden;
+  width: 360px;
+  padding: 20px;
+  height: 80%;
+  margin: 50px auto;
+  background: #ccc;
+  opacity: 0.6;
+}
+
+#app {
+  position: relative;
+  height: 100%;
+}
+
+.question-page {
+  height: 100%;
+}
+
+.btn-group {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+  height: 100px;
+}
+
+.btn-group > button {
+  height: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button.light-high {
+  background: #39f;
+}

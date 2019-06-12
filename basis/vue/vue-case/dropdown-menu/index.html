@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>点击外部关闭下拉框菜单</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div id="app" v-cloak>
+      <!-- <div class="main" v-clickoutside="handleClose" v-escglobal="handleClose"> -->
+      <div class="main" v-clickoutside.esc="handleClose">
+        <button @click="show = !show">点击显示下拉菜单</button>
+        <div class="dropdown" v-show="show">
+          <p>下拉框菜单内容，点击外部区域时可以关闭。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../../lib/vue-2.4.0.js"></script>
+  <script src="index.js"></script>
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data: {
+        show: true
+      },
+      methods: {
+        handleClose: function () {
+          this.show = false
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>数字输入框组件</title>
+  <style>
+    .wrapper {
+      width: 250px;
+      padding: 100px;
+      margin: 50px auto 0;
+      border: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div id="app">
+      <input-number v-model="value" :min="0" :max="10" :step="2" v-on="{input: input, 'on-change': onChange}"></input-number>
+    </div>
+  </div>
+  <script src="../../lib/vue-2.4.0.js"></script>
+  <script src="input-number.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

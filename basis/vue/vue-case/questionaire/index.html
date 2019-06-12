@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WebApp</title>
+  <style>
+    .wrapper {
+      width: 400px;
+      padding: 15px;
+      margin: auto;
+      background: #ccc;
+    }
+
+    .btn-group {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 50px;
+      margin-top: 100px;
+    }
+
+    button {
+      width: 100px;
+      height: 100%;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+    }
+
+    button:enabled {
+      background: #39f;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <question-group :questions="questions" @submit="handleSubmit"></question-group>
+</div>
+
+  <script src="../../lib/vue-2.4.0.js"></script>
+  <script src="button.js"></script>
+  <script src="questions.js"></script>
+  <script src="question-group.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        questions: [
+          {
+            type: 'radio',
+            title: '请问您的性别是：',
+            options: ['男', '女', '保密'],
+            picked: '',
+            // name: 'gender'
+          },
+          {
+            type: 'multi',
+            title: '请选择您的兴趣爱好：',
+            options: ['看书', '游泳', '跑步', '看电影', '听音乐'],
+            picked: []
+          },
+          {
+            type: 'textarea',
+            title: '自我介绍：',
+            tips: '不少于20字',
+            text: ''
+            // text: 'introduction'
+          }
+        ]
+      },
+      methods: {
+        handleSubmit (questions) {
+          let text = `
+            你的性别为：${questions[0].picked}，
+            你的爱好是：${questions[1].picked.join('和')},
+            你的自我介绍：${questions[2].text}
+          `
+          console.log(text)
+        }
+      }
+    })
+  </script>
+</body>
+</html>
