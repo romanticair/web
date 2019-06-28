@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>留言列表</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div id="app" style="width: 500px; margin: 20px auto;" v-cloak>
+    <div class="message">
+      <v-input v-model="username"></v-input>
+      <v-textarea ref="message" v-model="message"></v-textarea>
+      <button @click="handleSend">发布</button>
+    </div>
+    <comment-list :list="list" @reply="handleReply" @delete="handleDelete"></comment-list>
+  </div>
+
+  <script src="../../lib/vue-2.4.0.js"></script>
+  <!-- <script src="input-render.js"></script> -->
+  <!-- <script src="comment-render.js"></script> -->
+  <script src="input-template.js"></script>
+  <script src="comment-template.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
