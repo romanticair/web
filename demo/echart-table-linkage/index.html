@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chart-Table-联动</title>
+  <style>
+    .wrapper {
+      width: 400px;
+      margin: 20px auto;  
+    }
+
+    table {
+      width: 400px;
+      margin-bottom: 48px;
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #e9e9e9;
+    }
+
+    table caption {
+      font-size: 24px;
+      border-top: 2px solid #39f;
+      border-bottom: 2px solid #39f;
+    }
+
+    table th {
+      font-weight: 600;
+      color: #5c6b77;
+      background: #f7f7f7;
+    }
+
+    table td,
+    table th {
+      padding: 8px 16px;
+      text-align: center;
+      border: 1px solid #e9e9e9;
+    }
+
+    table td:nth-child(2) {
+      cursor: pointer;
+    }
+
+    table tr td:nth-child(2):hover {
+      color: #39f;
+    }
+
+    table tr.on {
+      background: pink;
+      transition: all .5s ease-out;
+    }
+
+    .chart {
+      width: 400px;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <table>
+      <caption>Chart 与 Table 联动</caption>
+      <colgroup><col><col><col></colgroup>
+      <thead>
+        <tr>
+          <th>序号</th>
+          <th>城市名</th>
+          <th>产品年销量</th>
+        </tr>
+      </thead>
+      <tbody>
+       <!-- 
+        <tr>
+          <td>1</td>
+          <td>深圳</td>
+          <td>300</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>成都</td>
+          <td>299</td>
+        </tr>
+      </tbody>
+      -->
+      <!-- 
+      <tfoot>
+        <tr>
+          <td>表脚注1</td>
+          <td>表脚注2</td>
+          <td>表脚注3</td>
+        </tr>
+      </tfoot>
+      -->
+      </table>
+
+    <div class="chart" id="barChart"></div>
+  </div>
+
+  <!-- <script src="./jquery-3.3.1.js"></script> -->
+  <!-- <script src="./echarts.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.2.1/echarts-en.common.js"></script>
+  <script>
+    const chart = echarts.init(document.getElementById('barChart'))
+
+    // 模拟的数据
+    const data = [
+      { name: '深圳', year: 300, month: rndList(12, 20, 250) },
+      { name: '成都', year: 277, month: rndList(12, 20, 250) },
+      { name: '杭州', year: 250, month: rndList(12, 20, 250) },
+      { name: '海南', year: 230, month: rndList(12, 20, 250) },
+    ]
+
+    const cities = data.map(city => {
+      return { on: false, name: city.name }
+    })
+
+    let $cities = []
+
+    // 用于首次的年销售 -> 月销售切换
+    let firstClick = true
+
+
+    function setMonthOption () {
+      // chart-bar 的配置
+      chart.setOption({
+        // color: ['#006699', '#4cabce'],
+        title: {
+          text: '产品销售数据可视化',
+          bottom: '0',
+          left: '30%'
+        },
+        tooltip: {},
+        legend: {
+          data: data.map(city => city.name)
+        },
+        xAxis: {
+          name: '月份',
+          type: 'category',
+          data: [
+            "1月", "2月", "3月", "4月", "5月", "6月",
+            "7月", "8月", "9月", "10月", "11月", "12月"
+          ]
+        },
+        yAxis: {
+          name: '月销售量'
+        },
+        series: data.map(city => {
+          return { name: city.name, type: 'bar', data: city.month }
+        })
+      }, true)
+    }
+
+    function setYearOption () {
+      chart.setOption({
+        title: {
+          text: '产品销售数据可视化',
+          bottom: '0',
+          left: '30%'
+        },
+        xAxis: {
+          name: '城市名',
+          data: data.map(city => city.name)
+        },
+        yAxis: {
+          name: '年销售量',
+        },
+        series: [{
+          type: 'bar',
+          data: data.map(city => {
+            return { name: city.name, value: city.year }
+          }),
+          label: {
+            show: true
+          }
+        }]
+      }, true)
+    }
+
+    function init () {
+      // 动态生成 Tr
+      generateTr()
+      // 缓存表中所有城市 Node，减少 DOM 操作
+      $cities = $('tbody tr td:nth-child(2)')
+      // 绑定事件
+      bindEvent()
+      // 柱状图 -- 先初始化年销量，点击后再切换成对应的月销量
+      setYearOption()
+    }
+
+    function bindEvent () {
+      bindLegendSelectedListener()
+      bindCityNameClickListener()
+      bindYearSalesListener()
+    }
+
+    function bindLegendSelectedListener () {
+      chart.on('legendselectchanged', src => {
+        let citiesJSON = src.selected
+        
+        // 'cityName: true | false'
+        $.each(citiesJSON, function (name, bool) {
+          let index = cities.findIndex(city => city.name === name)
+          // 同步更新数据状态
+          cities[index].on = bool
+        })
+
+        // 联动 Table
+        updateTable()
+      })
+    }
+
+    function bindCityNameClickListener () {
+      $('tbody').delegate('td', 'click', ev => {
+
+        let $target = $(ev.target) 
+        let index = cities.findIndex(item => item.name === $target.text())
+        if (index >= 0) {
+
+          // 用于年销售转变成月销售
+          if (firstClick) {
+            setMonthOption()
+            firstClick = false
+          }
+
+          let isActive = $target.parent().hasClass('on')
+          // toggle（多选功能）
+          $target.parent().toggleClass('on')
+          // 同步更新数据状态
+          cities[index].on = !isActive
+          // 联动 chart
+          updateChart()
+        }
+      })
+    }
+
+    // 联动函数，柱状图联动表格
+    function updateTable () {
+      const activeCities = cities.filter(city => city.on)
+
+      $cities.each((i, node) => {
+        let index = activeCities.findIndex(city => city.name === node.innerText.trim())
+        if (index >= 0) {
+          $(node).parent().addClass('on')
+        } else {
+          $(node).parent().removeClass('on')
+        }
+      })
+    }
+
+    // 联动函数，表格联动柱状图
+    function updateChart () {
+      // https://www.echartsjs.com/api.html#action.legend.legendUnSelect
+      $.each(cities, (i, city) => {
+        let action = city.on ? 'legendSelect' : 'legendUnSelect'
+        chart.dispatchAction({
+          type: action,
+          name: city.name
+        })  
+      })
+    }
+
+    function bindYearSalesListener () {
+      chart.one('click', ev => {
+        let cityName = ev.data.name
+        let index = cities.findIndex(item => item.name === cityName)
+
+        $cities.each((i, node) => {
+          let $city = $(node)
+          if ($city.text().trim() === cityName) {
+            $city.parent().addClass('on')
+          }
+        })
+
+        // 同步更新数据状态
+        cities[index].on = true
+        firstClick = false
+
+        setMonthOption()
+        // 联动 chart
+        updateChart()
+      })
+    }
+
+    function generateTr () {
+      let $tbody = $('tbody')
+      // 动态生成表数据
+      $.each(data, (i, city) => {
+        $tbody.append(
+          `<tr>
+            <td>${ i + 1 }</td>
+            <td>${ city.name }</td>
+            <td>${ city.year }</td>
+          </tr>
+        `)
+      })
+    }
+
+    function rndList (n, min, max) {
+      let ret = []
+      while (0 < n--) {
+        ret.push(parseInt(Math.random() * (max - min) + min))
+      }
+
+      return ret
+    }
+
+
+    init()
+  </script>
+</body>
+</html>
