@@ -1,5 +1,8 @@
 var isValidCookieName = require('./type.js').isValidCookieName
 
+/**
+ * Set Cookie
+ */
 function setCookie(cookieName, cookieValue, expiredays) {
   if (!isValidCookieName(cookieName)) {
     return
@@ -17,6 +20,9 @@ function setCookie(cookieName, cookieValue, expiredays) {
 }
 
 
+/**
+ * Get Cookie
+ */
 function getCookie(cookieName) {
   if (isValidCookieName(cookieName)) {
     // \x24 == $，注意：cookie分割是以 ' ;' 分割的，而开头和尾直接为空
@@ -35,11 +41,9 @@ function removeCookie (cookieName) {
   setCookie(cookieName, 'a', -1)
 }
 
-
 function setStorage(key, val) {
   window.localStorage.setItem(key, JSON.stringify(val))
 }
-
 
 function getStorage(key) {
   return JSON.parse(window.localStorage.setItem(key))

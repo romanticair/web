@@ -41,8 +41,9 @@ function isElement(arg) {
   return s.indexOf('[object HTML') !== -1 || s.indexOf('[object Window]') !== -1
 }
 
-
-// 判断是否为IE浏览器，返回-1或者版本号
+/**
+ * 判断是否为IE浏览器，返回-1或者版本号
+ */
 function isIE() {
   return /msie ([\d\.]+)/i.test(navigator.userAgent) ? document.documentMode : -1
 }
@@ -81,7 +82,9 @@ function isPlain(obj){
 }
 
 
-// Cookie 索引键是否有效
+/**
+ * Cookie 索引键是否有效
+ */
 function isValidCookieName(cookieName) {
   // http://www.w3.org/Protocols/rfc2109/rfc2109
   // Syntax:  General
@@ -125,13 +128,17 @@ function isEmail(s) {
 }
 
 
-// 判断是否为手机号
+/**
+ * 判断是否为手机号
+ */
 function isMobilePhone(phone) {
   return /^((13[0-9])|(14[579])|(15[0-9])|(17[0168])|(18[0-9]))\d{8}$/.test(phone)
 }
 
 
-// IOS 系统
+/**
+ * IOS 系统
+ */
 function isIOS () {
   var u = navigator.userAgent
   if (/Android|Linux/ig.test(u)) {
@@ -152,7 +159,9 @@ function isIOS () {
 }
 
 
-// PC端
+/**
+ * PC端
+ */
 function isPC() {
   var userAgent = navigator.userAgent
   var mobiles = [
@@ -171,7 +180,9 @@ function isPC() {
 }
 
 
-// 根据给定类型检查
+/**
+ * 根据给定类型检查
+ */
 function isType(str, type) {
   switch (type) {
     case 'phone':   //手机号码
@@ -214,7 +225,9 @@ function isType(str, type) {
 }
 
 
-// 严格的身份证校验
+/**
+ * 严格的身份证校验
+ */
 function isIDCard(s) {
   var id = trim(s)
 
@@ -267,7 +280,9 @@ function isIDCard(s) {
 }
 
 
-// 浏览器类型
+/**
+ * 浏览器类型
+ */
 function getBrowserType() {
   var userAgent = navigator.userAgent
   // Opera浏览器

@@ -149,8 +149,10 @@ function isSiblingNode(element, siblingNode) {
 }
 
 
-// 获取元素绝对位置的横坐标和纵坐标距离(距离顶级 HTMLDocument 距离，不受滚动影响)
-// iframe 中不适用
+/**
+ * 获取元素绝对位置的横坐标和纵坐标距离(距离顶级 HTMLDocument 距离，不受滚动影响)
+ * iframe 中不适用
+ */
 function getElementPagePosition(element) {
   if (element.getBoundingClientRect) {
     var rect = element.getBoundingClientRect()
@@ -176,8 +178,9 @@ function getElementPagePosition(element) {
 }
 
 
-// 获取元素相对于浏览器窗口左上角的距离
-// 注意：不是文档左上角，如果是相对于文档左上角，需要减去 scrollTop、scrollLeft
+/** 获取元素相对于浏览器窗口左上角的距离
+ * 注意：不是文档左上角，如果是相对于文档左上角，需要减去 scrollTop、scrollLeft
+ */
 function getElementViewportPosition(element) {
   if (element.getBoundingClientRect) {
     var rect = element.getBoundingClientRect()

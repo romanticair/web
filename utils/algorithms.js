@@ -1,4 +1,6 @@
-// 快速排序，升序
+/**
+ * 快速排序，升序
+ */
 function quickSort(arr) {
   var timestamp = Date.now()
   
