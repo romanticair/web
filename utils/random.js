@@ -21,7 +21,7 @@ function getRndInt(min, max) {
     max = min
     min = 0
   }
-  return Math.floor(getRnd(min, max))
+  return Math.floor(getRnd(min, max + 1))
 }
 
 
