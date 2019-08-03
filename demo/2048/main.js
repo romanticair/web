@@ -6,7 +6,9 @@ $(function () {
     var initN = 2
     var gridN = 4
     var unoccupiedPos = [11, 12, 13, 14, 21, 22, 23, 24, 31, 32, 33, 34, 41, 42, 43, 44]
+    // 按每一行从上到下，行中每一个数字格子（已生成的）位置从左到右排序后的数值数组
     var occupiedPosRows = []
+    // 按每一列从左到右，列中每一个数字格子（已生成的）位置从上到下排序后的数值数组
     var occupiedPosCols = []
     var score = 0
 
@@ -72,6 +74,7 @@ $(function () {
     }
 
     function isLose() {
+      // 是否还有空余位置
       if (unoccupiedPos.length != 0) {
         return false
       }
@@ -91,8 +94,10 @@ $(function () {
         verticalNum.push(num)
       })
 
-      var hTag = horizontalNum.every(function (el, i, arr) {
-        if (i == arr.length - 1 || i % gridN == 3 || el != arr[i + 1]) {
+      // 横向是否已走投无路
+      var hTag = horizontalNum.every(function (n, i, arr) {
+        // 最后一个（向后无匹配） || 右侧第三个 || 当前格子数字和右边的不同
+        if (i == arr.length - 1 || i % gridN == 3 || n != arr[i + 1]) {
           // 每个都满足则表示无棋可走
           return true
         } else {
@@ -100,8 +105,9 @@ $(function () {
         }
       })
 
-      var vTag = verticalNum.every(function (el, i, arr) {
-        if (i == arr.length - 1 || i % gridN == 3 || el != arr[i + 1]) {
+      // 纵向是否已走投无路
+      var vTag = verticalNum.every(function (n, i, arr) {
+        if (i == arr.length - 1 || i % gridN == 3 || n != arr[i + 1]) {
           return true
         } else {
           return false
@@ -117,14 +123,18 @@ $(function () {
       var len = occupiedPosCols.length
       for (var i = 0; i < len; i++) {
         var posTag = occupiedPosCols[i]
+        // 跳过第一行
         if (parseInt(posTag / 10) == 1) {
           continue
         }
 
+        // 向下遍历列，使数字格子往上走
         for (var j = 1; j < gridN; j++) {
+          // 用于向上一行的位置进行探询，是空位置还是有数字存在，进一步判断是否可合并
           posTag = occupiedPosCols[i] - 10 * j
           if (occupiedPosCols.indexOf(posTag) != -1) {
             var ret = isMerge(posTag, occupiedPosCols[i])
+            // ret[0] -- Boolean of isMerge
             if (ret[0]) {
               merge(ret[1], ret[2], ret[3], ret[4])
               occupiedPosRows.splice(occupiedPosRows.indexOf(occupiedPosCols[i]), 1)
@@ -132,17 +142,20 @@ $(function () {
               occupiedPosCols[i] = posTag
               isSlide = true
             } else {
+              // 数字不相同，继续往下探询
               posTag = posTag + 10
             }
 
             break
           }
 
+          // 有数字合并/空位填补之后，有可能是移到第一行
           if (parseInt(posTag / 10) == 1) {
             break
           }
         }
 
+        // 位置变化则更新视图面板和位置
         if (posTag != occupiedPosCols[i]) {
           slide(posTag, occupiedPosCols[i])
           updatePos(posTag, occupiedPosCols[i])
@@ -150,6 +163,7 @@ $(function () {
         }
       }
 
+      // 上面的 updatePos 方法为了方便，可能会重复添加位置，这里去重
       occupiedPosCols = [...(new Set(occupiedPosCols))]
       return isSlide
     }
@@ -402,7 +416,8 @@ $(function () {
         occupiedPosRows.push(posTag)
         occupiedPosCols.push(posTag)
         occupiedPosRows.sort()
-        // 没有这个算法 -- 自己实现
+        // 按每一列从左到右，列中每一个数字格子（已生成的）位置从上到下排序
+        // 没有这个算法 -- 自己实现 -- 下面可行
         occupiedPosCols.sort()
         occupiedPosCols.sort(colsCompare)
       }
